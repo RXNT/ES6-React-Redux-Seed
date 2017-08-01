@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  **NOTE:** This is a template for index.html. It uses ejs and htmlWebpackPlugin to generate a different index.html for each environment. htmlWebpackPlugin will dynamically add references to the scripts and styles that it bundles to this file. The generated bundles have hash-based filenames, so it's necessary to add the references dynamically.
+  For more info on ejs, see http://www.embeddedjs.com/. For examples of using it with htmlWebpackPlugin, see https://github.com/jaketrent/html-webpack-template/blob/master/index.ejs
+  -->
+<head>
+  <!--
+    The htmlWebpackPlugin will parse the logic below so that trackJS is only added to the production version of index.html (since only webpack.config.prod.js provides the trackJS token)
+    This is an example of how to add features to index.html for only one environment.
+    To track JavaScript errors via TrackJS, sign up for a free trial at TrackJS.com and enter your token in /webpack.config.prod.js on line 55.
+   -->
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+	<meta http-equiv="cache-control" content="max-age=0" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="expires" content="-1" />
+	<script>
+		// Must be first. IE10 mobile viewport fix
+		if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+			var msViewportStyle = document.createElement("style");
+			var mq = "@-ms-viewport{width:auto!important}";
+			msViewportStyle.appendChild(document.createTextNode(mq));
+			document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+		}
+	</script>
+  <title>RxNT | Seed</title>
+  <link rel="icon" type="image/png" href="assets/images/header/RxNT-BlueBG-favicon.png">
+</head>
+<body>
+<div id="app"></div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+//global variable
+$font-weight: normal;
+$font-family: Roboto ;
+//$font-family: Microsoft Sans Serif;
+$font-size: 14px;
+//vendor prefix
+@mixin border-radius($radius...) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin box-shadow($value...) {
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+  box-shadow: $value;
+}
+@mixin transition($value...) {
+  -webkit-transition: $value;
+  -moz-transition: $value;
+  -o-transition: $value;
+  transition: $value;
+}
+@mixin backface-visibility($value...) {
+  -webkit-backface-visibility: $value;
+  -moz-backface-visibility: $value;
+  -ms-backface-visibility: $value;
+  -o-backface-visibility: $value;
+  backface-visibility: $value;
+}
+@mixin box-sizing($value...) {
+  -webkit-box-sizing: $value;
+  -moz-box-sizing: $value;
+  box-sizing: $value;
+}
+
+@mixin transform($value...){
+  -webkit-transform: $value;
+  -moz-transform:$value;
+  -o-transform: $value;
+  -ms-transform:$value;
+  transform: $value;
+}
+
+@mixin animation($value...){
+  -webkit-animation: $value;
+  -moz-animation:$value;
+  -o-animation: $value;
+  animation: $value;
+}
+@mixin animation-delay($value...){
+  -webkit-animation-delay: $value;
+  -moz-animation-delay:$value;
+  -o-animation-delay: $value;
+  animation-delay: $value;
+}

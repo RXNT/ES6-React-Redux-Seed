@@ -1,0 +1,249 @@
+.glyphicon {
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+}
+/* Sizes */
+.glyPhiconSize-medium {
+  font-size: 22px;
+  padding: 2px;
+}
+
+.glyPhiconSize-18 {
+  font-size: 18px;
+}
+/* Colors */
+.glyPhiconRed {
+  color: red;
+}
+
+.glyPhiconSearchColor {
+  color: #428bca;
+}
+
+.glyPhiconSearchColor:hover {
+  cursor: pointer;
+  opacity: 1 !important;
+}
+
+.glyPhiconRotate {
+  @include box-shadow(1px 1px 3px gray);
+  @include border-radius(2px);
+  @include transition( all 0.5s ease);
+  border: 1px solid gray;
+  padding: 3px;
+  font-size: 20px!important;
+
+  &:hover {
+    @include transform(rotate(360deg));
+  }
+}
+
+.glyhpiconMandatoryInValid {
+  font-size: 12px;
+  color: #E73C06;
+  vertical-align: top !important;
+}
+
+.glyhpiconMandatoryValid {
+  font-size: 12px;
+  color: #428bca;
+  vertical-align: top !important;
+}
+.glyPhiconIconBlue {
+    color: #62bcfa;
+    height: 35px;
+    width: 35px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.glyPhiconIconGreen {
+    color: #6AA32D;
+    height: 25px;
+    width: 25px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.glyPhiconIconRed {
+    color: #d9534f;
+    height: 25px;
+    width: 25px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.glyPhiconSearchColorSmall {
+    /*color: #428bca;
+    font-size: 25px!important;*/
+
+    color: #62bcfa;
+    font-size: 16px!important;
+    padding: 6px;
+    background-color: #fff;
+    margin-right: -6.75px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    border-radius: 50px;
+    height: 28px;
+    width: 28px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+	display: inline-block;
+	zoom: 1; *display: inline;
+
+}
+
+.glyPhiconSearchColor {
+    /*color: #428bca;
+    font-size: 25px!important;*/
+
+    color: #62bcfa;
+    font-size: 20px!important;
+    padding: 9px 10px 10px 10px;
+    background-color: #fff;
+    margin-right: -10px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    border-radius: 50px;
+    height: 40px;
+    width: 40px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+	display: inline-block;
+	zoom: 1; *display: inline;
+    vertical-align: top !important;
+
+}
+
+
+.glyPhiconFileTypeColor {
+    /*color: #428bca;
+    font-size: 25px!important;*/
+
+    color: #62bcfa;
+    font-size: 22px!important;
+    padding: 9px 10px 10px 10px;
+    background-color: #fff;
+    margin-right: -10px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    border-radius: 50px;
+    height: 40px;
+    width: 40px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+	display: inline-block;
+	zoom: 1; *display: inline;
+
+}
+
+.glyPhiconListColor {
+    /*color: #428bca;
+    font-size: 25px!important;*/
+
+    color: #62bcfa;
+    font-size: 15px!important;
+    padding: 8px;
+    background-color: #fff;
+    margin-top: -25px;
+    margin-bottom: 5px;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+	display: inline-block;
+	zoom: 1; *display: inline;
+
+}
+
+.glyPhiconSearchColorMedium {
+    /*color: #428bca;
+    font-size: 25px!important;*/
+
+    color: #62bcfa;
+    font-size: 15px!important;
+    padding: 8px;
+    background-color: #fff;
+    margin-top: -25px;
+    margin-bottom: 5px;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+	display: inline-block;
+	zoom: 1; *display: inline;
+
+}
+
+.glyPhiconPlusColor {
+    /*color: #A4E5F1;*/
+    color: #62bcfa;
+    font-size: 20px!important;
+    padding: 9px 9px 10px 11px;
+    background-color: #fff;
+    margin-right: -10px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    border-radius: 50px;
+    height: 40px;
+    width: 40px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+	display: inline-block;
+	zoom: 1; *display: inline;
+  opacity: 1 !important;
+}
+
+.glyPhiconPlayColor {
+    /*color: #5cb85c;
+    font-size: 25px!important;*/
+
+	color: #fff;
+	font-size: 18px !important;
+}
+
+
+.glyPhiconDarkBlueColor {
+    color: #274f66;
+}
+
+.glyPhiconGreen {
+    color: #5F9828;
+}
+
+.glyPhiconBlue {
+    color: #257CBA;
+}
+
+.glyPhiconLime {
+    color: #ad9e29;
+}
+
+.glyPhiconYellow {
+    color: #F0A614;
+}
+
+.glyPhiconPink {
+    color: #ff00ff;
+}
+
+.glyphicon:hover {
+    cursor: pointer;
+    cursor: hand;
+    /*opacity: 0.7;*/
+}
+.glyphiconIconHierarchy {
+    color: #07364f;
+    font-size: 8px;
+    margin-top: -3px;
+    padding: 2px;
+}
+
+.glyphiconIcon {
+    color: #38A8E8;
+    font-size: 16px;
+    padding: 2px;
+}
+
+.glyphicons:before {
+  padding: 0px !important;
+}
