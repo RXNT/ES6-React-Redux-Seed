@@ -31,19 +31,23 @@ yarn Start
   * Replace ApiServiceUrl value with url for API service to connect
   * Change HostedIP value to actual url where the app will be hosted, this information will be used for logging purpose
 
-## How to create a new page
+## How to create a Students Registrations Search Page
   
-  1. Create new folder under `src\components` with below files
+  1. Create new folder named as `search-students` under `src\components` with below files
      
-     * `actions.js`
-     * `constants.js`
-     * `initial.state.js`
-     * `reducer.js`
-     * `[***].component.js`
-     * `[***].component.scss`
+     *  Define state in `initial.state.js`
+     *  Identify list of actions you want to perform in this page, and define action types in `constants.js`
+     *  Define actions like fetching data from APIs in `actions.js`
+     *  Define reducer methods to update state in `reducer.js`
+     *  Add new component `search-students.component.js`
+     *  Add new styles `search-students.component.scss`
 
-  2. Import reducer created under step (1) in `src\store\reducers.js`
-  3. Configure route under `src\containers\app.js`
+  2. Create new folder named as `search-students` under `src\containers`
+     *  Add new container component `search-students.component.js` and import component created in `step-1`
+
+  3. Import reducer created under step (1) in `src\store\reducers.js`
+
+  4. Configure route under `src\containers\app.js` with container component created under `step-2`
 
 ## All Commands
 
