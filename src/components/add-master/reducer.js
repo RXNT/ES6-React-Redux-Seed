@@ -7,13 +7,11 @@ export default function addMasterReducer(state = initialState, action = {}) {
       return {
         ...state,
         loading: true,
-        data: [],
       };
-    case types.COMPONENTS_ADD_MASTER_LOAD_SUCCESS:
+    case types.COMPONENTS_ADD_MASTER_SPINNER_STOP:
       return {
         ...state,
         loading: false,
-        data: action.data,
       };
     case types.COMPONENTS_ADD_MASTER_SAVE:
       return {

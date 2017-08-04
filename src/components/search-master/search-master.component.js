@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link } from 'react-router-dom';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 import * as samplePage1Actions from './actions';
@@ -16,12 +15,18 @@ class SearchMasterComponent extends Component {
   }
 
   componentWillMount() {
-    this.props.actions.load();
+    const compScope = this;
+    this.props.actions.startSpinner();
+    Promise.all([
+      compScope.props.actions.load(),
+    ]).then(() => {
+      compScope.props.actions.stopSpinner();
+    });
   }
 
   idFormatter(cell, row) { // eslint-disable-line no-unused-vars
     return (
-      <Link to="/new">{cell}</Link>
+      <a href="#">{cell}</a>
     );
   }
 
@@ -48,12 +53,12 @@ class SearchMasterComponent extends Component {
         <div className="table">
           <div className="row">
             <div className="col-md-4">
+              {this.props.loading && <SpinnerComponent/>}
               <h4>Search Master</h4>
             </div>
           </div>
         </div>
         <div className="table tab-content">
-          {this.props.loading && <SpinnerComponent/>}
           <div className="row">
             <BootstrapTable selectRow={selectRowProp} minHeight="300px" data={this.props.data}
               pagination={true} options={options}>

@@ -38,8 +38,19 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
-# Dependency directory
-node_modules
+#---------------------------------
+# Directories
+#---------------------------------
+**/node_modules/
+target/
+tmp/
+dist/
+developmentdist
+typings/
+devqadist/
+prodqadist/
+prodreleasedist/
+releasedist/
 
 # Optional npm cache directory
 .npm

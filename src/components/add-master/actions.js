@@ -1,19 +1,17 @@
 import * as types from './constants';
 
-export function load() {
+export function startSpinner() {
   return function (dispatch) {
     dispatch({
       type: types.COMPONENTS_ADD_MASTER_SPINNER_START,
     });
-    const employeeInfo = {
-      id: 1,
-      name: 'Test, Grays1',
-      email: 'test1@gmail.com',
-    };
+  };
+}
 
+export function stopSpinner() {
+  return function (dispatch) {
     dispatch({
-      type: types.COMPONENTS_ADD_MASTER_LOAD_SUCCESS,
-      data: employeeInfo,
+      type: types.COMPONENTS_ADD_MASTER_SPINNER_STOP,
     });
   };
 }

@@ -1,10 +1,23 @@
 import * as types from './constants';
 
-export function load() {
+export function startSpinner() {
   return function (dispatch) {
     dispatch({
       type: types.COMPONENTS_SEARCH_MASTER_SPINNER_START,
     });
+  };
+}
+
+export function stopSpinner() {
+  return function (dispatch) {
+    dispatch({
+      type: types.COMPONENTS_SEARCH_MASTER_SPINNER_STOP,
+    });
+  };
+}
+
+export function load() {
+  return function (dispatch) {
     const employees = [
       {
         id: 1,
@@ -47,7 +60,6 @@ export function load() {
         email: 'test8@gmail.com',
       },
     ];
-
     dispatch({
       type: types.COMPONENTS_SEARCH_MASTER_LOAD_SUCCESS,
       data: employees,

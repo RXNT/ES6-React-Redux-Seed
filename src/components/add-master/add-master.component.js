@@ -39,9 +39,7 @@ class AddMasterComponent extends Component {
     this.saveInfo = this.saveInfo.bind(this);
   }
 
-  componentWillMount() {
-    this.props.actions.load();
-  }
+  componentWillMount() {}
 
   saveInfo(e) {
     e.preventDefault();
