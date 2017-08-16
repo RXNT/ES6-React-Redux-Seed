@@ -7,22 +7,20 @@
     "yarn": ">=0.17.9"
   },
   "scripts": {
+    "init-setup": "rimraf .git",
     "getoutdatedpackages": "yarn outdated",
-    
     "start-message": "babel-node tools/startMessage.js",
     "preinstall": "node tools/nodeVersionCheck.js",
     "open:src": "babel-node tools/srcServer.js",
     "prestart": "yarn install && yarn remove-dist && yarn lint",
     "start": "npm-run-all --parallel start-message open:src",
-    
     "devqa-remove-dist": "rimraf ./devqadist",
     "devqa-clean-dist": "yarn devqa-remove-dist && mkdir devqadist",
     "predevqa-build": "yarn install && yarn devqa-clean-dist && yarn lint",
-    "open:devqa-dist": "babel-node tools/devqaDistServer.js", 
+    "open:devqa-dist": "babel-node tools/devqaDistServer.js",
     "devqa-build": "babel-node tools/devqaBuild.js && yarn open:devqa-dist",
     "predevqa-build-package": "yarn install && yarn devqa-clean-dist && yarn lint",
     "devqa-build-package": "babel-node tools/devqaBuild.js",
-
     "prodqa-clean-dist": "yarn prodqa-remove-dist && mkdir prodqadist",
     "prodqa-remove-dist": "rimraf ./prodqadist",
     "preprodqa-build": "yarn install && yarn prodqa-clean-dist && yarn lint",
@@ -30,7 +28,6 @@
     "prodqa-build": "babel-node tools/prodqaBuild.js && yarn open:prodqa-dist",
     "preprodqa-build-package": "yarn install && yarn prodqa-clean-dist && yarn lint",
     "prodqa-build-package": "babel-node tools/prodqaBuild.js",
-    
     "prod-release-remove-dist": "rimraf ./releasedist",
     "prod-release-clean-dist": "yarn prod-release-remove-dist && mkdir releasedist",
     "preprod-release-build": "yarn install && yarn prod-release-clean-dist && yarn lint",
@@ -38,7 +35,6 @@
     "prod-release-build": "babel-node tools/prodReleaseBuild.js && yarn open:prod-release-dist",
     "preprod-release-build-package": "yarn install && yarn prod-release-clean-dist && yarn lint",
     "prod-release-build-package": "babel-node tools/prodReleaseBuild.js",
-    
     "lint": "esw webpack.config.* src tools --color",
     "lint:watch": "yarn lint -- --watch",
     "clean-dist": "yarn remove-dist && mkdir dist",
@@ -83,9 +79,9 @@
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
     "babel-plugin-react-display-name": "2.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
@@ -115,7 +111,7 @@
     "html-webpack-plugin": "2.22.0",
     "isparta": "4.0.0",
     "mocha": "^3.4.2",
-    "node-sass": "3.8.0",
+    "node-sass": "^4.5.3",
     "npm-run-all": "^4.0.2",
     "open": "0.0.5",
     "prompt": "1.0.0",
