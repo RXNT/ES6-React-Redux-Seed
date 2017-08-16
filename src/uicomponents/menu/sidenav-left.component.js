@@ -6,11 +6,11 @@ class SideNavLeftComponent extends Component {
   render() {
     return (
       <div className="popoutmenu leftpopmenu">
-        <a className="poplefthome" href="/ehrv8/main/doctor/home.aspx">RxNT Home</a>
+        <a className="poplefthome" href="#">RxNT Home</a>
         <ul>
           <li className="menu1">
             <span className="glyphicons glyphicons-calendar"></span>
-            <a target="_blank" href="#">Menu 1</a>
+            <a href="#/search">Menu 1</a>
           </li>
           <li className="menu2">
             <span className="glyphicons glyphicons-family"></span>

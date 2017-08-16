@@ -3,5 +3,5 @@ export default {
   showLeftMenu: false,
   showRightMenu: false,
   menus: [],
-  initialPage: '/search',
+  initialPage: '/',
 };
