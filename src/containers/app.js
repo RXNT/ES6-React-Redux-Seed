@@ -10,6 +10,7 @@ import SideNavLeftComponent from '../uicomponents/menu/sidenav-left.component';
 import SideNavRightComponent from '../uicomponents/menu/sidenav-right.component';
 import SearchMasterContainerComponent from './search-master/search-master.component';
 import AddMasterContainerComponent from './add-master/add-master.component';
+import HomeContainer from './home/home.container';
 import VersionMismatchComponent from './partials/version-mismatch.component';
 import * as appActions from './actions';
 import appConfig from '../app.config';
@@ -48,7 +49,7 @@ class App extends Component {
                 <div className="navbar navbar-fixed-top">
                   <div className="navbar-inner">
                     <div className="main_menu leftmenu">
-                      <a href="#" className="hideopen" onClick={this.toggleLeftMenu} tabIndex="-1">
+                      <a className="hideopen" onClick={this.toggleLeftMenu} tabIndex="-1">
                         <Glyphicon glyph="menu-hamburger" id="menu_toggle" tabIndex="-1" />Menu
                       </a>
                     </div>
@@ -69,7 +70,7 @@ class App extends Component {
                 <Redirect to={this.props.initialPage} />
                 <Route exact path="/search" component={SearchMasterContainerComponent} />
                 <Route exact path="/new" component={AddMasterContainerComponent} />
-                <Route exact path="/" component={SearchMasterContainerComponent} />
+                <Route exact path="/" component={HomeContainer} />
               </div>
             </div>
           }
