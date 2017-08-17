@@ -21,7 +21,7 @@ class TopNavComponent extends Component {
           <span className="icon-bar"></span>
         </button>
         <a href="#">
-          <div className="brand"></div>
+          <div className="brand"><span><h2>Home</h2></span></div>
         </a>
         <div className="nav-collapse collapse topmenu">
           <ul className="nav">
