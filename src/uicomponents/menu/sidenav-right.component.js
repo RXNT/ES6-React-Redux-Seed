@@ -9,17 +9,17 @@ class SideNavRightComponent extends Component {
           Group 1
         </div>
         <ul>
-          <li className="MenuItems"><a href="#">Menu 1</a></li>
-          <li className="MenuItems"><a href="#">Menu 2</a></li>
-          <li className="MenuItems"><a href="#">Menu 3</a></li>
+          <li className="MenuItems"><a href="#">Right Menu 1</a></li>
+          <li className="MenuItems"><a href="#">Right Menu 2</a></li>
+          <li className="MenuItems"><a href="#">Right Menu 3</a></li>
         </ul>
         <div className="popwelcome">
           Group 2
         </div>
         <ul>
-          <li className="MenuItems"><a href="#">Menu 4</a></li>
-          <li className="MenuItems"><a href="#">Menu 5</a></li>
-          <li className="MenuItems"><a href="#">Menu 6</a></li>
+          <li className="MenuItems"><a href="#">Right Menu 4</a></li>
+          <li className="MenuItems"><a href="#">Right Menu 5</a></li>
+          <li className="MenuItems"><a href="#">Right Menu 6</a></li>
         </ul>
       </div>
     );
