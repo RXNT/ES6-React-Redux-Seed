@@ -5,7 +5,8 @@
     "airbnb-base",
   ],
   "plugins": [
-    "react"
+    "react",
+    "json"
   ],
   "parserOptions": {
     "ecmaVersion": 6,
