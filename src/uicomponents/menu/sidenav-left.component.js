@@ -9,11 +9,11 @@ class SideNavLeftComponent extends Component {
         <a className="poplefthome" href="#">RxNT Home</a>
         <ul>
           <li className="menu1">
-            <span className="glyphicons glyphicons-calendar"></span>
+            <span className="glyphicon glyphicon-home"></span>
             <a href="#/search">Menu 1</a>
           </li>
           <li className="menu2">
-            <span className="glyphicons glyphicons-family"></span>
+            <span className="glyphicon glyphicon-usd"></span>
             <a href="#">Menu 2</a>
           </li>
         </ul>
