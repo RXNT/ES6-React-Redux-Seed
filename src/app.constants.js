@@ -3,6 +3,7 @@ export default {
     getCurrentClientVersion: 'rxntmaster/common/GetCurrentClientVersion/',
     logoutAppRoute: 'rxntmaster/authentication/Logout/',
     logErrorRoute: 'rxntmaster/common/LogError',
+    employeesRoute: '/employees/',
   },
   messages: {
     validationMessage: 'Please correct the errors',
@@ -13,5 +14,6 @@ export default {
   },
   appInfo: {
     applicationName: 'RxNTSeedApp',
+    apiServer: 'http://localhost:3002',
   },
 };

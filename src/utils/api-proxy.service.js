@@ -36,4 +36,25 @@ module.exports = {
         });
     });
   },
+  get: (resourceUrl, params) => {
+    const Promise = promise.Promise;
+    const requestHeaders = new Headers();
+    requestHeaders.append('COntent-Type', 'application/json');
+
+    return new Promise((resolve, reject) => {
+      fetch(resourceUrl, {
+        credentials: 'same-origin',
+        method: 'get',
+        headers: requestHeaders,
+        body: JSON.stringify(params),
+      })
+        .then(checkStatus)
+        .then((response) => {
+          resolve(response.json());
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  },
 };
