@@ -1,8 +1,8 @@
 export default {
   apiRoutes: {
-    getCurrentClientVersion: 'rxntmaster/common/GetCurrentClientVersion/',
-    logoutAppRoute: 'rxntmaster/authentication/Logout/',
-    logErrorRoute: 'rxntmaster/common/LogError',
+    getCurrentClientVersion: '/rxntmaster/common/GetCurrentClientVersion/',
+    logoutAppRoute: '/rxntmaster/authentication/Logout/',
+    logErrorRoute: '/rxntmaster/common/LogError',
     employeesRoute: '/employees/',
   },
   messages: {

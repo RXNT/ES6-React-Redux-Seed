@@ -11,9 +11,9 @@
     "getoutdatedpackages": "yarn outdated",
     "start-message": "babel-node tools/startMessage.js",
     "preinstall": "node tools/nodeVersionCheck.js",
-    "open:src": "babel-node tools/srcServer.js",    
-    "start-json-server": "json-server --watch ./src/tests/db.json --port 3002",
-    "prestart": "yarn install && yarn remove-dist && yarn lint",    
+    "open:src": "babel-node tools/srcServer.js",
+    "start-json-server": "json-server --watch ./src/tests/db.json --port 3002 --routes ./src/tests/routes.json",
+    "prestart": "yarn install && yarn remove-dist && yarn lint",
     "start": "npm-run-all --parallel start-message start-json-server open:src",
     "devqa-remove-dist": "rimraf ./devqadist",
     "devqa-clean-dist": "yarn devqa-remove-dist && mkdir devqadist",
@@ -77,6 +77,7 @@
     "redux-form": "^7.0.3",
     "redux-notifications": "^4.0.1",
     "redux-thunk": "^2.2.0",
+    "uuid": "^3.1.0",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {

@@ -45,5 +45,27 @@
       "name": "Test, Grays9",
       "email": "test9@gmail.com"
     }
+  ],
+  "logs": [
+    {
+      "id": "8e174380-8767-11e7-8e76-39f03883d0f2",
+      "message": "Test log message"
+    },
+    {
+      "id": "9890b0d0-8767-11e7-8e76-39f03883d0f2",
+      "message": "Test log message"
+    },
+    {
+      "id": "fefa3080-8767-11e7-a8b7-c9f86c4ba30e",
+      "message": "Test log message"
+    },
+    {
+      "id": "05fb8e10-8768-11e7-a8b7-c9f86c4ba30e",
+      "message": "Test log message"
+    },
+    {
+      "id": "5bcca1b0-876a-11e7-a8b7-c9f86c4ba30e",
+      "message": "Test log message"
+    }
   ]
 }

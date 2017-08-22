@@ -1,6 +1,7 @@
 import * as types from './constants';
 import appConstants from '../../app.constants';
 import apiProxy from '../../utils/api-proxy.service';
+import logUtils from '../../utils/log-utils';
 
 export function startSpinner() {
   return function (dispatch) {
@@ -27,8 +28,8 @@ export function load() {
           data: response,
         });
       })
-      .catch(() => {
-        console.log('Error occured while loading employees');
+      .catch((e) => {
+        logUtils.logError('Error occured while loading employees', e);
       });
   };
 }
