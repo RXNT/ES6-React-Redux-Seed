@@ -21,7 +21,7 @@ export function stopSpinner() {
 
 export function load() {
   return function (dispatch) {
-    apiProxy.get(appConstants.appInfo.apiServer + appConstants.apiRoutes.employeesRoute)
+    apiProxy.get(appConstants.appInfo.apiServer + appConstants.apiRoutes.mastersRoute)
       .then((response) => {
         dispatch({
           type: types.COMPONENTS_SEARCH_MASTER_LOAD_SUCCESS,
@@ -29,7 +29,7 @@ export function load() {
         });
       })
       .catch((e) => {
-        logUtils.logError('Error occured while loading employees', e);
+        logUtils.logError('Error occured while loading masters', e);
       });
   };
 }

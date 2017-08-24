@@ -77,7 +77,6 @@
     "redux-form": "^7.0.3",
     "redux-notifications": "^4.0.1",
     "redux-thunk": "^2.2.0",
-    "uuid": "^3.1.0",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {

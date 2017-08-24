@@ -13,7 +13,12 @@ export default function addMasterReducer(state = initialState, action = {}) {
         ...state,
         loading: false,
       };
-    case types.COMPONENTS_ADD_MASTER_SAVE:
+    case types.COMPONENTS_ADD_MASTER_ACTION_SUCCESS:
+      return {
+        ...state,
+        isSubmitted: action.isSubmitted,
+      };
+    case types.COMPONENTS_ADD_MASTER_ACTION_FAILED:
       return {
         ...state,
         isSubmitted: action.isSubmitted,

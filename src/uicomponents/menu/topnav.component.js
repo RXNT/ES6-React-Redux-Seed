@@ -30,7 +30,7 @@ class TopNavComponent extends Component {
               <div className="navcircle ng-binding">
                 1
               </div>
-              <span>Menu1</span> </a>
+              <span>Masters</span> </a>
             </li>
             <li className="ocolor prescription"><a href="#" tabIndex="-1">
               <div className="navcircle ng-binding">

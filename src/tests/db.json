@@ -1,5 +1,5 @@
 {
-  "employees": [
+  "masters": [
     {
       "id": 1,
       "name": "Test, Grays1",
@@ -36,35 +36,18 @@
       "email": "test7@gmail.com"
     },
     {
-      "id": 8,
-      "name": "Test, Grays8",
-      "email": "test8@gmail.com"
-    },
-    {
-      "id": 9,
-      "name": "Test, Grays9",
-      "email": "test9@gmail.com"
+      "name": "test",
+      "email": "test@test.com",
+      "id": 8
     }
   ],
   "logs": [
     {
-      "id": "8e174380-8767-11e7-8e76-39f03883d0f2",
+      "id": "1",
       "message": "Test log message"
     },
     {
-      "id": "9890b0d0-8767-11e7-8e76-39f03883d0f2",
-      "message": "Test log message"
-    },
-    {
-      "id": "fefa3080-8767-11e7-a8b7-c9f86c4ba30e",
-      "message": "Test log message"
-    },
-    {
-      "id": "05fb8e10-8768-11e7-a8b7-c9f86c4ba30e",
-      "message": "Test log message"
-    },
-    {
-      "id": "5bcca1b0-876a-11e7-a8b7-c9f86c4ba30e",
+      "id": "2",
       "message": "Test log message"
     }
   ]

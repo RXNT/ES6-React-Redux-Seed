@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import * as addActions from './actions';
 import SpinnerComponent from '../../uicomponents/spinner/spinner.component';
 import './add-master.component.scss';
+import * as types from './constants';
 
 const errorImg = require('../../../assets/images/error.png');
 
@@ -23,7 +24,8 @@ const inputComponent = field =>
       placeholder={field.placeholder}
       onChange={field.onChange ? field.onChange : field.input.onChange}
       value={field.prefillValue ? field.prefillValue : field.input.value}
-      maxLength = {field.maxLength}/>
+      maxLength = {field.maxLength}
+    />
     {field.isSubmitted && field.meta.error !== '' && field.meta.error !== undefined &&
     <span>
       <OverlayTrigger placement="top"
@@ -43,10 +45,11 @@ class AddMasterComponent extends Component {
 
   saveInfo(e) {
     e.preventDefault();
+    console.log('calling saveInfo from component');
     this.props.actions.saveInfo();
-    // if (this.props.formValid) {
-    //   alert(JSON.stringify(this.props.formValues));
-    // }
+    /* if (this.props.formValid) {
+      alert(JSON.stringify(this.props.formValues)); // eslint-disable-line
+    } */
   }
 
   render() {
@@ -73,7 +76,7 @@ class AddMasterComponent extends Component {
               First Name:
             </div>
             <div className="col-md-2 col-sm-2 col-sx-2">
-              <Field type="text" name="userName"
+              <Field type="text" name="name"
                 isSubmitted={this.props.isSubmitted} component={inputComponent}/>
             </div>
           </div>
@@ -104,8 +107,8 @@ class AddMasterComponent extends Component {
 
 function validate(values) {
   const errors = {};
-  if (!values.userName || values.userName === '' || values.userName === null) {
-    errors.userName = 'First Name is required.';
+  if (!values.name || values.name === '' || values.name === null) {
+    errors.name = 'First Name is required.';
   }
 
   if (!values.email || values.email === '' || values.email === null || values.email === undefined) {
@@ -135,8 +138,8 @@ const mapStateToProps = store => (
     data: store.addMasterReducer.data,
     loading: store.addMasterReducer.loading,
     isSubmitted: store.addMasterReducer.isSubmitted,
-    formValid: isValid('frmAddMaster')(store),
-    formValues: getFormValues('frmAddMaster')(store),
+    formValid: isValid(types.COMPONENTS_ADD_MASTER_FORM)(store),
+    formValues: getFormValues(types.COMPONENTS_ADD_MASTER_FORM)(store),
   }
 );
 
@@ -147,7 +150,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 const AddMasterComponentForm = reduxForm({
-  form: 'frmAddMaster',
+  form: types.COMPONENTS_ADD_MASTER_FORM,
   validate,
   enableReinitialize: true,
 })(AddMasterComponent);
