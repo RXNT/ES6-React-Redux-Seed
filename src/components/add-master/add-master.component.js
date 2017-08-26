@@ -45,8 +45,7 @@ class AddMasterComponent extends Component {
 
   saveInfo(e) {
     e.preventDefault();
-    console.log('calling saveInfo from component');
-    this.props.actions.saveInfo();
+    this.props.actions.saveInfo(this.props.formValues);
     /* if (this.props.formValid) {
       alert(JSON.stringify(this.props.formValues)); // eslint-disable-line
     } */

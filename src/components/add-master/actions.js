@@ -1,5 +1,3 @@
-import { getFormValues } from 'redux-form';
-
 import * as types from './constants';
 import appConstants from '../../app.constants';
 import apiProxy from '../../utils/api-proxy.service';
@@ -21,13 +19,11 @@ export function stopSpinner() {
   };
 }
 
-export function saveInfo() {
-  return function (dispatch, getState) {
+export function saveInfo(formValues) {
+  return function (dispatch) {
     try {
-      const store = getState();
-      const eventStore = getFormValues(types.COMPONENTS_ADD_MASTER_FORM)(store);
       return apiProxy.post(appConstants.appInfo.apiServer + appConstants.apiRoutes.mastersRoute,
-        eventStore)
+        formValues)
         .then(() => {
           dispatch({
             type: types.COMPONENTS_ADD_MASTER_ACTION_SUCCESS,
