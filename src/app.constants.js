@@ -3,7 +3,7 @@ export default {
     getCurrentClientVersion: '/rxntmaster/common/GetCurrentClientVersion/',
     logoutAppRoute: '/rxntmaster/authentication/Logout/',
     logErrorRoute: '/rxntmaster/common/LogError',
-    mastersRoute: '/masters/',
+    searchMastersRoute: '/masters?_sort=id&_order=desc',
   },
   messages: {
     validationMessage: 'Please correct the errors',

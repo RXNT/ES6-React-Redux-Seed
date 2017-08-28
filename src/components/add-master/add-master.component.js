@@ -5,6 +5,7 @@ import { reduxForm, Field, getFormValues, isValid } from 'redux-form';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 import * as addActions from './actions';
 import SpinnerComponent from '../../uicomponents/spinner/spinner.component';
@@ -45,10 +46,10 @@ class AddMasterComponent extends Component {
 
   saveInfo(e) {
     e.preventDefault();
-    this.props.actions.saveInfo(this.props.formValues);
-    /* if (this.props.formValid) {
-      alert(JSON.stringify(this.props.formValues)); // eslint-disable-line
-    } */
+    this.props.actions.saveInfo(this.props.formValues)
+      .then(() => {
+        this.props.history.push('/Search');
+      });
   }
 
   render() {
@@ -154,4 +155,5 @@ const AddMasterComponentForm = reduxForm({
   enableReinitialize: true,
 })(AddMasterComponent);
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddMasterComponentForm);
+const AddMasterComponentFormWithRouter = withRouter(AddMasterComponentForm);
+export default connect(mapStateToProps, mapDispatchToProps)(AddMasterComponentFormWithRouter);

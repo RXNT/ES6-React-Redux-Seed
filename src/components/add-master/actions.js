@@ -22,8 +22,9 @@ export function stopSpinner() {
 export function saveInfo(formValues) {
   return function (dispatch) {
     try {
-      return apiProxy.post(appConstants.appInfo.apiServer + appConstants.apiRoutes.mastersRoute,
-        formValues)
+      return apiProxy.post(appConstants.appInfo.apiServer
+        + appConstants.apiRoutes.searchMastersRoute,
+      formValues)
         .then(() => {
           dispatch({
             type: types.COMPONENTS_ADD_MASTER_ACTION_SUCCESS,

@@ -21,7 +21,7 @@ export function stopSpinner() {
 
 export function load() {
   return function (dispatch) {
-    apiProxy.get(appConstants.appInfo.apiServer + appConstants.apiRoutes.mastersRoute)
+    apiProxy.get(appConstants.appInfo.apiServer + appConstants.apiRoutes.searchMastersRoute)
       .then((response) => {
         dispatch({
           type: types.COMPONENTS_SEARCH_MASTER_LOAD_SUCCESS,
