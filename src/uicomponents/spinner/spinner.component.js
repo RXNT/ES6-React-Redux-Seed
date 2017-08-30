@@ -2,6 +2,9 @@ import React from 'react';
 
 import './spinner.scss';
 
+/**
+ * This function creates different leaves to form as spinner
+ */
 function SpinnerComponent() {
   return (
     <div className="spinOverlay">

@@ -2,17 +2,6 @@
 # yarn lockfile v1
 
 
-"@allenfang/react-toastr@2.8.2":
-  version "2.8.2"
-  resolved "https://registry.yarnpkg.com/@allenfang/react-toastr/-/react-toastr-2.8.2.tgz#0bef6585189e0571dd6bdfc4ef98bc9f9c47da0c"
-  dependencies:
-    classnames "^2.2.5"
-    element-class "^0.2.2"
-    lodash "^4.16.1"
-    react "^0.14.0 || <15.4.0"
-    react-addons-update "^0.14.0 || <15.4.0"
-    react-dom "^0.14.0 || <15.4.0"
-
 Base64@~0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/Base64/-/Base64-0.2.1.tgz#ba3a4230708e186705065e66babdd4c35cf60028"
@@ -1027,6 +1016,13 @@ babel-runtime@^6.11.6, babel-runtime@^6.18.0, babel-runtime@^6.22.0:
   dependencies:
     core-js "^2.4.0"
     regenerator-runtime "^0.10.0"
+
+babel-runtime@^6.23.0:
+  version "6.26.0"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
+  dependencies:
+    core-js "^2.4.0"
+    regenerator-runtime "^0.11.0"
 
 babel-template@^6.24.1, babel-template@^6.25.0:
   version "6.25.0"
@@ -2258,7 +2254,7 @@ electron-to-chromium@^1.2.5:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.2.6.tgz#f38ad51d1919b06bc07275c62629db803ddca05a"
 
-element-class@^0.2.0, element-class@^0.2.2:
+element-class@^0.2.0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/element-class/-/element-class-0.2.2.tgz#9d3bbd0767f9013ef8e1c8ebe722c1402a60050e"
 
@@ -2479,6 +2475,10 @@ eslint-plugin-react@^7.2.1:
     doctrine "^2.0.0"
     has "^1.0.1"
     jsx-ast-utils "^2.0.0"
+
+eslint-plugin-require-jsdoc@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-require-jsdoc/-/eslint-plugin-require-jsdoc-1.0.4.tgz#032abe9be1f36ad0e66cd4f149b4bfab6fcd4e9d"
 
 eslint-restricted-globals@^0.1.1:
   version "0.1.1"
@@ -2739,7 +2739,7 @@ fastparse@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/fastparse/-/fastparse-1.1.1.tgz#d1e2643b38a94d7583b479060e6c4affc94071f8"
 
-fbjs@^0.8.4, fbjs@^0.8.9:
+fbjs@^0.8.9:
   version "0.8.9"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.9.tgz#180247fbd347dcc9004517b904f865400a0c8f14"
   dependencies:
@@ -4172,7 +4172,7 @@ lodash@3.7.x:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.7.0.tgz#3678bd8ab995057c07ade836ed2ef087da811d45"
 
-lodash@4, lodash@^4.0.0, lodash@^4.1.0, lodash@^4.11.2, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.16.1, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
+lodash@4, lodash@^4.0.0, lodash@^4.1.0, lodash@^4.11.2, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -5505,17 +5505,14 @@ react-addons-test-utils@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/react-addons-test-utils/-/react-addons-test-utils-15.6.0.tgz#062d36117fe8d18f3ba5e06eb33383b0b85ea5b9"
 
-"react-addons-update@^0.14.0 || <15.4.0":
-  version "15.3.2"
-  resolved "https://registry.yarnpkg.com/react-addons-update/-/react-addons-update-15.3.2.tgz#b6385c4db1e5df371825e0615b04360ed94430fe"
-
-react-bootstrap-table@^3.4.1:
-  version "3.4.6"
-  resolved "https://registry.yarnpkg.com/react-bootstrap-table/-/react-bootstrap-table-3.4.6.tgz#0e1e5c7d9bf0f4b854a91fbc640770e7f757d27b"
+react-bootstrap-table@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/react-bootstrap-table/-/react-bootstrap-table-4.0.2.tgz#7e504141c8662fb203f0bcddab365c331b0e7106"
   dependencies:
-    "@allenfang/react-toastr" "2.8.2"
     classnames "^2.1.2"
+    prop-types "^15.5.10"
     react-modal "^1.4.0"
+    react-s-alert "^1.3.0"
 
 react-bootstrap@^0.31.0:
   version "0.31.1"
@@ -5560,10 +5557,6 @@ react-deep-force-update@^1.0.0:
 react-dom-factories@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-dom-factories/-/react-dom-factories-1.0.0.tgz#f43c05e5051b304f33251618d5bc859b29e46b6d"
-
-"react-dom@^0.14.0 || <15.4.0":
-  version "15.3.2"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.3.2.tgz#c46b0aa5380d7b838e7a59c4a7beff2ed315531f"
 
 react-dom@^15.6.1:
   version "15.6.1"
@@ -5693,6 +5686,12 @@ react-router@^4.1.1, react-router@^4.1.2:
     prop-types "^15.5.4"
     warning "^3.0.0"
 
+react-s-alert@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-s-alert/-/react-s-alert-1.3.0.tgz#d81224a474f15e89c35c0ea6c2a73f232a767128"
+  dependencies:
+    babel-runtime "^6.23.0"
+
 react-select@^0.9.1:
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/react-select/-/react-select-0.9.1.tgz#e322a2d0a06396a48206b0553df5ec47d16083ba"
@@ -5724,14 +5723,6 @@ react-transition-group@^1.1.3, react-transition-group@^1.2.0:
     loose-envify "^1.3.1"
     prop-types "^15.5.6"
     warning "^3.0.0"
-
-"react@^0.14.0 || <15.4.0":
-  version "15.3.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.3.2.tgz#a7bccd2fee8af126b0317e222c28d1d54528d09e"
-  dependencies:
-    fbjs "^0.8.4"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.0"
 
 react@^15.6.1:
   version "15.6.1"
@@ -5918,6 +5909,10 @@ regenerate@^1.2.1:
 regenerator-runtime@^0.10.0:
   version "0.10.3"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.10.3.tgz#8c4367a904b51ea62a908ac310bf99ff90a82a3e"
+
+regenerator-runtime@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.0.tgz#7e54fe5b5ccd5d6624ea6255c3473be090b802e1"
 
 regenerator-transform@0.9.11:
   version "0.9.11"

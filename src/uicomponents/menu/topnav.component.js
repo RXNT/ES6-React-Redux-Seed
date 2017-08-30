@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Defines layout of Top Navigation Bar
+ */
 class TopNavComponent extends Component {
+  /**
+   * Attach component scope to all functions 
+   * @constructor
+   */
   constructor(props) {
     super(props);
     this.toggleLeftMenu = this.toggleLeftMenu.bind(this);
   }
 
+  /**
+   * This function triggers left menu
+   */
   toggleLeftMenu() {
     this.props.toggleLeftMenu();
   }
 
+  /**
+   * Prepare layout for component which will be rendered in browser
+   */
   render() {
     return (
       <div className="container">

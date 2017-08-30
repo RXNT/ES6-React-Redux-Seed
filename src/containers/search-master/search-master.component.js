@@ -6,7 +6,13 @@ import { Link } from 'react-router-dom';
 import SpinnerComponent from '../../uicomponents/spinner/spinner.component';
 import SearchMasterComponent from '../../components/search-master/search-master.component';
 
+/**
+ * Defines layout of Search Master Page
+ */
 class SearchMasterContainerComponent extends Component {
+  /**
+   * Prepare layout for component which will be rendered in browser
+   */
   render() {
     return (
       <div>

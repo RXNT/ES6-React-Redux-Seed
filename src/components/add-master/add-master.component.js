@@ -36,14 +36,28 @@ const inputComponent = field =>
     </span>}
   </span>;
 
+/**
+ * Defines layout of Add Master Screen
+ */
 class AddMasterComponent extends Component {
+  /**
+   * Attach component scope to all functions 
+   * @constructor
+   */
   constructor(props) {
     super(props);
     this.saveInfo = this.saveInfo.bind(this);
   }
 
+  /**
+   * Serires of actions will be executed before the initial render of component
+   */
   componentWillMount() {}
 
+  /**
+ * This function saves information to database
+ * @param {object} e - Event Object
+ */
   saveInfo(e) {
     e.preventDefault();
     this.props.actions.saveInfo(this.props.formValues)
@@ -52,6 +66,9 @@ class AddMasterComponent extends Component {
       });
   }
 
+  /**
+   * Prepare layout for component which will be rendered in browser
+   */
   render() {
     let errorMsgs = '';
     if (this.props.validationMessages !== null && this.props.validationMessages !== '' &&
@@ -105,6 +122,10 @@ class AddMasterComponent extends Component {
   }
 }
 
+/**
+ * This function validates form data
+ * @param {object} values - form data entered by user
+ */
 function validate(values) {
   const errors = {};
   if (!values.name || values.name === '' || values.name === null) {
@@ -143,6 +164,10 @@ const mapStateToProps = store => (
   }
 );
 
+/**
+ * This function binds actions with component
+ * @param {object} dispatch - Dispatcer
+ */
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(addActions, dispatch),

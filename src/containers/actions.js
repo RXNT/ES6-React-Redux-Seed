@@ -1,5 +1,9 @@
 import * as actionTypes from './constants';
 
+/**
+ * This function update state information to toggle left menu
+ * @param {boolean} show - show/hide left menu
+ */
 export function toggleLeftMenu(show) {
   return function (dispatch) {
     dispatch({
@@ -9,6 +13,10 @@ export function toggleLeftMenu(show) {
   };
 }
 
+/**
+ * This function update state information to toggle right menu
+ * @param {boolean} show - show/hide right menu
+ */
 export function toggleRightMenu(show) {
   return function (dispatch) {
     dispatch({

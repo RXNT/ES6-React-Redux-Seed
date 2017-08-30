@@ -3,6 +3,9 @@ import appConstants from '../../app.constants';
 import apiProxy from '../../utils/api-proxy.service';
 import logUtils from '../../utils/log-utils';
 
+/**
+ * This function update state information to start spinner
+ */
 export function startSpinner() {
   return function (dispatch) {
     dispatch({
@@ -11,6 +14,9 @@ export function startSpinner() {
   };
 }
 
+/**
+ * This function update state information to stop spinner
+ */
 export function stopSpinner() {
   return function (dispatch) {
     dispatch({
@@ -19,6 +25,10 @@ export function stopSpinner() {
   };
 }
 
+/**
+ * This function saves information to database
+ * @param {object} formValues - form data entered by user
+ */
 export function saveInfo(formValues) {
   return function (dispatch) {
     try {

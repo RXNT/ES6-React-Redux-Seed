@@ -22,6 +22,13 @@
     "func-names": 0,
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
+    "require-jsdoc": ["error", {
+        "require": {
+            "FunctionDeclaration": true,
+            "MethodDefinition": true,
+            "ClassDeclaration": true
+        }
+    }]
   },
   "globals": {
     "window": true,

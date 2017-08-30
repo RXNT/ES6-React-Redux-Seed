@@ -15,7 +15,14 @@ import VersionMismatchComponent from './partials/version-mismatch.component';
 import * as appActions from './actions';
 import appConfig from '../app.config';
 
+/**
+ * Defines layout for application level component
+ */
 class App extends Component {
+  /**
+   * Attach component scope to all functions 
+   * @constructor
+   */
   constructor(props) {
     super(props);
     this.toggleLeftMenu = this.toggleLeftMenu.bind(this);
@@ -23,19 +30,31 @@ class App extends Component {
     this.closeMenu = this.closeMenu.bind(this);
   }
 
+  /**
+   * This function toggles left menu
+   */
   toggleLeftMenu() {
     this.props.actions.toggleLeftMenu(!this.props.showLeftMenu);
   }
 
+  /**
+   * This function toggles right menu
+   */
   toggleRightMenu() {
     this.props.actions.toggleRightMenu(!this.props.showRightMenu);
   }
 
+  /**
+   * This function closes both left and right menu
+   */
   closeMenu() {
     this.props.actions.toggleLeftMenu(false);
     this.props.actions.toggleRightMenu(false);
   }
 
+  /**
+   * Prepare layout for component which will be rendered in browser
+   */
   render() {
     return (
       <HashRouter>
@@ -99,6 +118,10 @@ const mapStateToProps = store => (
   }
 );
 
+/**
+ * This function binds actions with component
+ * @param {object} dispatch - Dispatcer
+ */
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(appActions, dispatch),

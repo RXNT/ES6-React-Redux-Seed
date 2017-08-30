@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
 import './dialog.component.scss';
 
+/**
+ * Defines Modal Component
+ */
 class DialogComponent extends Component {
+  /**
+   * Attach component scope to all functions 
+   * @constructor
+   */
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
@@ -11,18 +18,30 @@ class DialogComponent extends Component {
     this.onConfirm = this.onConfirm.bind(this);
   }
 
+  /**
+   * Toggles popup
+   */
   toggle() {
     return this.props.show;
   }
 
+  /**
+   * Popup close callback
+   */
   close() {
     this.props.closeCallback();
   }
 
+  /**
+   * Popup confirmation callback
+   */
   onConfirm() {
     this.props.onConfirm();
   }
 
+  /**
+   * Prepare layout for component which will be rendered in browser
+   */
   render() {
     return (
       <div className="table">

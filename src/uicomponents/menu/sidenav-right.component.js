@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
+/**
+ * Defines layout of Right Side Navigation Bar
+ */
 class SideNavRightComponent extends Component {
+  /**
+   * Prepare layout for component which will be rendered in browser
+   */
   render() {
     return (
       <div className="leftpopmenu popoutUtility" id="divMainRight">

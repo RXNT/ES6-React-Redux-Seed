@@ -8,12 +8,22 @@ import * as samplePage1Actions from './actions';
 import SpinnerComponent from '../../uicomponents/spinner/spinner.component';
 import './search-master.component.scss';
 
+/**
+ * Defines layout of Search Master Screen
+ */
 class SearchMasterComponent extends Component {
+  /**
+   * Attach component scope to all functions 
+   * @constructor
+   */
   constructor(props) {
     super(props);
     this.idFormatter = this.idFormatter.bind(this);
   }
 
+  /**
+   * Serires of actions will be executed before the initial render of component
+   */
   componentWillMount() {
     const compScope = this;
     this.props.actions.startSpinner();
@@ -24,12 +34,20 @@ class SearchMasterComponent extends Component {
     });
   }
 
+  /**
+ * This function renders link tag
+ * @param {object} cell - data grid cell information
+ * @param {object} row - data grid row information
+ */
   idFormatter(cell, row) { // eslint-disable-line no-unused-vars
     return (
       <a href="#">{cell}</a>
     );
   }
 
+  /**
+   * Prepare layout for component which will be rendered in browser
+   */
   render() {
     const selectRowProp = {
       mode: 'checkbox',
@@ -92,6 +110,10 @@ const mapStateToProps = store => (
   }
 );
 
+/**
+ * This function binds actions with component
+ * @param {object} dispatch - Dispatcer
+ */
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(samplePage1Actions, dispatch),

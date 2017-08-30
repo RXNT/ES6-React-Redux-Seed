@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
+/**
+ * This compoment formats date
+ */
 class DateFormatterComponent extends Component {
+  /**
+   * Prepare layout for component which will be rendered in browser
+   */
   render() {
     let timeZone = this.props.timeZone;
     let newDate = '';

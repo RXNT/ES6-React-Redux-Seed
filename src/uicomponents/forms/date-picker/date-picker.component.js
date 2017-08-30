@@ -2,7 +2,13 @@ import React, { Component, PropTypes } from 'react';
 import { DateField, Calendar, Footer } from 'react-date-picker';
 import './date-picker.component.scss';
 
+/**
+ * Defines DatePicker Component
+ */
 class DateInputComponent extends Component {
+  /**
+   * Prepare layout for component which will be rendered in browser
+   */
   render() {
     const { field } = this.props;
     return (

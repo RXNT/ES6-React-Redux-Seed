@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 
 import './home.component.scss';
 
+/**
+ * Defines layout of Home Screen
+ */
 class HomeComponent extends Component {
+  /**
+   * Prepare layout for component which will be rendered in browser
+   */
   render() {
     return (
       <div>

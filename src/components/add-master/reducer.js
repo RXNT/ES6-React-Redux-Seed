@@ -1,6 +1,11 @@
 import * as types from './constants';
 import initialState from './initial.state';
 
+/**
+ * Reducer which is reponsible to update state
+ * @param {object} state - existing state information
+ * @param {object} action - new state information 
+ */
 export default function addMasterReducer(state = initialState, action = {}) {
   switch (action.type) {
     case types.COMPONENTS_ADD_MASTER_SPINNER_START:

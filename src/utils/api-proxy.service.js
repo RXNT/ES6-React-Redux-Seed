@@ -3,6 +3,10 @@ import appSettings from '../app.constants';
 
 const promise = require('es6-promise');
 
+/**
+ * This function verifies status of API response 
+ * @param {object} response - response object returned from API services
+ */
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;

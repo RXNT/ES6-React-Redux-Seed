@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+/**
+ * Defines layout of Left Side Navigation Bar
+ */
 class SideNavLeftComponent extends Component {
+  /**
+   * Prepare layout for component which will be rendered in browser
+   */
   render() {
     return (
       <div className="popoutmenu leftpopmenu">

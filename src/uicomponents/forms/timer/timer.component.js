@@ -5,22 +5,38 @@ import { bindActionCreators } from 'redux';
 
 import * as timerActions from './actions';
 
+/**
+ * Defines layout of Timer
+ */
 class TimerComponent extends Component {
+  /**
+   * Attach component scope to all functions 
+   * @constructor
+   */
   constructor(props) {
     super(props);
     this.setTime = this.setTime.bind(this);
   }
 
+  /**
+   * Serires of actions will be executed before the initial render of component
+   */
   componentWillMount() {
     this.setTime();
   }
 
+  /**
+   * Serires of actions will be executed once component mounted
+   */
   componentDidMount() {
     setInterval(() => {
       this.setTime();
     }, 1000);
   }
 
+  /**
+   * Starts timer
+   */
   setTime() {
     const currentdate = new Date();
     let currentHours = currentdate.getHours();
@@ -54,6 +70,9 @@ class TimerComponent extends Component {
     this.props.actions.updateTimer(time);
   }
 
+  /**
+   * Prepare layout for component which will be rendered in browser
+   */
   render() {
     return (
       <div className="timer">
@@ -77,6 +96,10 @@ const mapStateToProps = store => (
   }
 );
 
+/**
+ * This function binds actions with component
+ * @param {object} dispatch - Dispatcer
+ */
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(timerActions, dispatch),

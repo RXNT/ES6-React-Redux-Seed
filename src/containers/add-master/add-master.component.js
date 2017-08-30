@@ -5,7 +5,13 @@ import { connect } from 'react-redux';
 import SpinnerComponent from '../../uicomponents/spinner/spinner.component';
 import AddMasterComponent from '../../components/add-master/add-master.component';
 
+/**
+ * Defines layout of Add Master Page
+ */
 class AddMasterContainerComponent extends Component {
+  /**
+   * Prepare layout for component which will be rendered in browser
+   */
   render() {
     return (
       <div>
