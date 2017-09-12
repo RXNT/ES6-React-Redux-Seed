@@ -11,6 +11,7 @@ import * as addActions from './actions';
 import SpinnerComponent from '../../uicomponents/spinner/spinner.component';
 import './add-master.component.scss';
 import * as types from './constants';
+import MuiRaisedButton from '../ui-components/mui-raisedButton';
 
 const errorImg = require('../../../assets/images/error.png');
 
@@ -111,6 +112,7 @@ class AddMasterComponent extends Component {
               <div className="pull-right mainHeaderButtons">
                 <Link to="/search"><input type="button"
                   className="btnAllYellow pull-right" value="Cancel" /></Link>
+                <MuiRaisedButton label="Save" onClick={this.saveInfo} primary={true}/>
                 <input type="button" className="btnAllGreen pull-right"
                   value="Save" onClick={this.saveInfo} />
               </div>
