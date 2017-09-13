@@ -15,9 +15,7 @@ const applicationConfig = {
 };
 
 export default {
-  debug: true,
   devtool: 'cheap-module-eval-source-map', // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
-  noInfo: true, // set to false to see a list of every file being bundled.
   entry: [
     'webpack-hot-middleware/client?reload=true',
     './src/index',
@@ -28,7 +26,18 @@ export default {
     publicPath: 'http://localhost:3000/', // Use absolute paths to avoid the way that URLs are resolved by Chrome when they're parsed from a dynamically loaded CSS blob. Note: Only necessary in Dev.
     filename: `${applicationConfig.bundleFileName}.js`,
   },
+  devServer: {
+    noInfo: true, // set to false to see a list of every file being bundled.
+    debug: true,
+  },
   plugins: [
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        sassLoader: {
+          includePaths: [path.join(__dirname, 'assets/scss/styles.scss')],
+        },
+      },
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'), // Tells React to build in either dev or prod modes. https://facebook.github.io/react/downloads.html (See bottom)
       __DEV__: true,
@@ -55,39 +64,46 @@ export default {
     }),
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         include: path.join(__dirname, 'src'),
-        loaders: ['babel'],
+        use: ['babel-loader'],
       },
       {
         test: /\.eot(\?v=\d+.\d+.\d+)?$/,
-        loader: 'file',
+        use: [{
+          loader: 'file-loader',
+        }],
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+        use: [{
+          loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+        }],
       },
       {
         test: /\.ttf(\?v=\d+.\d+.\d+)?$/,
-        loader: 'file-loader?limit=10000&mimetype=application/octet-stream',
+        use: [{
+          loader: 'file-loader?limit=10000&mimetype=application/octet-stream',
+        }],
       },
       {
         test: /\.svg(\?v=\d+.\d+.\d+)?$/,
-        loader: 'file-loader?limit=10000&mimetype=image/svg+xml',
+        use: [{
+          loader: 'file-loader?limit=10000&mimetype=image/svg+xml',
+        }],
       },
       {
         test: /\.(jpe?g|png|gif)$/i,
-        loaders: ['file'],
+        use: [{
+          loader: 'file-loader',
+        }],
       },
       {
         test: /(\.css|\.scss)$/,
-        loaders: ['style', 'css?sourceMap', 'sass?sourceMap'],
+        use: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap'],
       },
     ],
-  },
-  sassLoader: {
-    includePaths: [path.join(__dirname, 'assets/scss/styles.scss')],
   },
 };

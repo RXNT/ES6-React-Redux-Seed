@@ -23,9 +23,7 @@ const GLOBALS = {
 };
 
 export default {
-  debug: true,
   devtool: 'source-map', // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
-  noInfo: true, // set to false to see a list of every file being bundled.
   entry: './src/index',
   target: 'web', // necessary per https://webpack.github.io/docs/testing.html#compile-and-test
   output: {
@@ -33,15 +31,26 @@ export default {
     publicPath: './',
     filename: `${applicationConfig.bundleFileName}.js`,
   },
+  devServer: {
+    noInfo: true, // set to false to see a list of every file being bundled.
+    debug: false,
+  },
   resolve: {
-    root: path.resolve('./'),
+    modules: ['node_modules'],
   },
   plugins: [
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        sassLoader: {
+          includePaths: [path.join(__dirname, 'assets/scss/styles.scss')],
+        },
+      },
+    }),
     // Hash the files using MD5 so that their names change when the content changes.
     new WebpackMd5Hash(),
 
     // Optimize the order that items are bundled. This assures the hash is deterministic.
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
 
     // Tells React to build in prod mode. https://facebook.github.io/react/downloads.html
     new webpack.DefinePlugin(GLOBALS),
@@ -67,9 +76,6 @@ export default {
       inject: true,
     }),
 
-    // Eliminate duplicate packages when generating bundle
-    new webpack.optimize.DedupePlugin(),
-
     // Minify JS
     new webpack.optimize.UglifyJsPlugin(),
 
@@ -84,43 +90,57 @@ export default {
     }),
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         include: path.join(__dirname, 'src'),
-        loaders: ['babel'],
+        use: ['babel-loader'],
+        exclude: [
+          path.resolve(__dirname, 'node_modules'),
+        ],
       },
       {
         test: /\.svg$/,
-        loader: 'url?limit=65000&mimetype=image/svg+xml&name=assets/fonts/[name].[ext]',
+        use: [{
+          loader: 'url-loader?limit=65000&mimetype=image/svg+xml&name=assets/fonts/[name].[ext]',
+        }],
       },
       {
         test: /\.woff$/,
-        loader: 'url?limit=65000&mimetype=application/font-woff&name=assets/fonts/[name].[ext]',
+        use: [{
+          loader: 'url-loader?limit=65000&mimetype=application/font-woff&name=assets/fonts/[name].[ext]',
+        }],
       },
       {
         test: /\.woff2$/,
-        loader: 'url?limit=65000&mimetype=application/font-woff2&name=assets/fonts/[name].[ext]',
+        use: [{
+          loader: 'url-loader?limit=65000&mimetype=application/font-woff2&name=assets/fonts/[name].[ext]',
+        }],
       },
       {
         test: /\.[ot]tf$/,
-        loader: 'url?limit=65000&mimetype=application/octet-stream&name=assets/fonts/[name].[ext]',
+        use: [{
+          loader: 'url-loader?limit=65000&mimetype=application/octet-stream&name=assets/fonts/[name].[ext]',
+        }],
       },
       {
         test: /\.eot$/,
-        loader: 'url?limit=65000&mimetype=application/vnd.ms-fontobject&name=assets/fonts/[name].[ext]',
+        use: [{
+          loader: 'url-loader?limit=65000&mimetype=application/vnd.ms-fontobject&name=assets/fonts/[name].[ext]',
+        }],
       },
       {
         test: /\.(jpe?g|png|gif)$/i,
-        loader: 'url-loader?name=[path][name].[ext]',
+        use: [{
+          loader: 'url-loader?name=[path][name].[ext]',
+        }],
       },
       {
         test: /(\.css|\.scss)$/,
-        loader: ExtractTextPlugin.extract('css?sourceMap!sass?sourceMap!resolve-url', { allChunks: true }),
+        use: ExtractTextPlugin.extract({
+          use: ['css-loader', 'sass-loader'],
+        }),
       },
     ],
-  },
-  sassLoader: {
-    includePaths: [path.join(__dirname, 'assets/scss/styles.scss')],
   },
 };
