@@ -31,13 +31,6 @@ export default {
     debug: true,
   },
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        sassLoader: {
-          includePaths: [path.join(__dirname, 'assets/scss/styles.scss')],
-        },
-      },
-    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'), // Tells React to build in either dev or prod modes. https://facebook.github.io/react/downloads.html (See bottom)
       __DEV__: true,
