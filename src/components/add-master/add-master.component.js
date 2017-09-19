@@ -75,7 +75,6 @@ class AddMasterComponent extends Component {
    * Prepare layout for component which will be rendered in browser
    */
   render() {
-    console.log('PRINTING data', this.props.data);
     let errorMsgs = '';
     if (this.props.validationMessages !== null && this.props.validationMessages !== '' &&
          this.props.validationMessages !== undefined && this.props.validationMessages.length > 0) {
