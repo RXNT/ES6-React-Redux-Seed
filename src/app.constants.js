@@ -4,6 +4,7 @@ export default {
     logoutAppRoute: '/rxntmaster/authentication/Logout/',
     logErrorRoute: '/rxntmaster/common/LogError',
     searchMastersRoute: '/masters?_sort=id&_order=desc',
+    getMastersRoute: '/masters/',
   },
   messages: {
     validationMessage: 'Please correct the errors',

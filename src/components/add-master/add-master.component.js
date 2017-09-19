@@ -53,7 +53,11 @@ class AddMasterComponent extends Component {
   /**
    * Serires of actions will be executed before the initial render of component
    */
-  componentWillMount() {}
+  componentWillMount() {
+    if (this.props.match.params.id) {
+      this.props.actions.getById(this.props.match.params.id);
+    }
+  }
 
   /**
  * This function saves information to database
@@ -71,6 +75,7 @@ class AddMasterComponent extends Component {
    * Prepare layout for component which will be rendered in browser
    */
   render() {
+    console.log('PRINTING data', this.props.data);
     let errorMsgs = '';
     if (this.props.validationMessages !== null && this.props.validationMessages !== '' &&
          this.props.validationMessages !== undefined && this.props.validationMessages.length > 0) {
@@ -182,5 +187,13 @@ const AddMasterComponentForm = reduxForm({
   enableReinitialize: true,
 })(AddMasterComponent);
 
-const AddMasterComponentFormWithRouter = withRouter(AddMasterComponentForm);
+const AddMasterComponentFormState = connect(
+  state => ({
+    initialValues: {
+      name: state.addMasterReducer.data.name,
+      email: state.addMasterReducer.data.email,
+    },
+  }),
+)(AddMasterComponentForm);
+const AddMasterComponentFormWithRouter = withRouter(AddMasterComponentFormState);
 export default connect(mapStateToProps, mapDispatchToProps)(AddMasterComponentFormWithRouter);

@@ -30,14 +30,17 @@ export function stopSpinner() {
  */
 export function load() {
   return function (dispatch) {
+    startSpinner();
     apiProxy.get(appConstants.appInfo.apiServer + appConstants.apiRoutes.searchMastersRoute)
       .then((response) => {
+        stopSpinner();
         dispatch({
           type: types.COMPONENTS_SEARCH_MASTER_LOAD_SUCCESS,
           data: response,
         });
       })
       .catch((e) => {
+        stopSpinner();
         logUtils.logError('Error occured while loading masters', e);
       });
   };

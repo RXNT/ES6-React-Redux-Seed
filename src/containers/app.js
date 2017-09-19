@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
-import { HashRouter, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import TopNavComponent from '../uicomponents/menu/topnav.component';
 import SideNavLeftComponent from '../uicomponents/menu/sidenav-left.component';
@@ -57,7 +57,7 @@ class App extends Component {
    */
   render() {
     return (
-      <HashRouter>
+      <Router>
         <div className="container-fluid">
           {this.props.versionConflict && <VersionMismatchComponent />}
           {!this.props.versionConflict &&
@@ -89,12 +89,13 @@ class App extends Component {
                 <Redirect to={this.props.initialPage} />
                 <Route exact path="/search" component={SearchMasterContainerComponent} />
                 <Route exact path="/new" component={AddMasterContainerComponent} />
+                <Route exact path="/master/:id" component={AddMasterContainerComponent} />
                 <Route exact path="/" component={HomeContainer} />
               </div>
             </div>
           }
         </div>
-      </HashRouter>
+      </Router>
     );
   }
 }

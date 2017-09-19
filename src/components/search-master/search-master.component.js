@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-
 import * as samplePage1Actions from './actions';
 import SpinnerComponent from '../../uicomponents/spinner/spinner.component';
 import './search-master.component.scss';
@@ -41,7 +41,7 @@ class SearchMasterComponent extends Component {
  */
   idFormatter(cell, row) { // eslint-disable-line no-unused-vars
     return (
-      <a href="#">{cell}</a>
+      <Link to={`/master/${cell}`}>{cell}</Link>
     );
   }
 
