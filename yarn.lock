@@ -5994,9 +5994,9 @@ react-addons-test-utils@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/react-addons-test-utils/-/react-addons-test-utils-15.6.0.tgz#062d36117fe8d18f3ba5e06eb33383b0b85ea5b9"
 
-react-bootstrap-table@4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/react-bootstrap-table/-/react-bootstrap-table-4.0.2.tgz#7e504141c8662fb203f0bcddab365c331b0e7106"
+react-bootstrap-table-extras@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-bootstrap-table-extras/-/react-bootstrap-table-extras-1.0.1.tgz#d94eac9ccb12db19d4c89239b92db4afacc6a353"
   dependencies:
     classnames "^2.1.2"
     prop-types "^15.5.10"
@@ -6044,8 +6044,8 @@ react-deep-force-update@^1.0.0:
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-1.0.1.tgz#f911b5be1d2a6fe387507dd6e9a767aa2924b4c7"
 
 react-dom-factories@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-dom-factories/-/react-dom-factories-1.0.0.tgz#f43c05e5051b304f33251618d5bc859b29e46b6d"
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-dom-factories/-/react-dom-factories-1.0.1.tgz#c50692ac5ff1adb39d86dfe6dbe3485dacf58455"
 
 react-dom@^15.6.1:
   version "15.6.1"

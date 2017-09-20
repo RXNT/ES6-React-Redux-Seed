@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table-extras';
 import * as samplePage1Actions from './actions';
 import SpinnerComponent from '../../uicomponents/spinner/spinner.component';
+import * as appUtils from '../../utils/app-utils';
 import './search-master.component.scss';
 
 /**
@@ -55,15 +56,12 @@ class SearchMasterComponent extends Component {
     };
 
     const options = {
+      paginationPanel: appUtils.renderPaginationPanel,
       page: 1, // which page you want to show as default
       sizePerPageList: [5, 10, 20], // you can change the dropdown list for size per page
       sizePerPage: 5, // which size per page you want to locate as default
       pageStartIndex: 1, // where to start counting the pages
       paginationSize: 5, // the pagination bar size.
-      prePage: '<', // Previous page button text
-      nextPage: '>', // Next page button text
-      firstPage: '<<', // First page button text
-      lastPage: '>>', // Last page button text
     };
 
     return (

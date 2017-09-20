@@ -1,4 +1,5 @@
 import MobileDetect from 'mobile-detect';
+import React from 'react';
 
 const md = new MobileDetect(window.navigator.userAgent);
 
@@ -53,5 +54,47 @@ module.exports = {
     const date = currentDtTm[0].split('/');
     const time = currentDtTm[1].split(':');
     return new Date(Date.UTC(date[2], date[0] - 1, date[1], time[0], time[1], time[2]));
+  },
+  /**
+   * renderPaginationPanel
+   */
+  renderPaginationPanel(props) {
+    return (
+      <div className='row'>
+        <div className='col-md-6 col-sm-6 col-xs-6'>
+          <div className='pull-left'>
+            <button className={props.currPage === 1 ? 'disabledPageButton pageingPanel' : 'pageingPanel'}
+              disabled={props.currPage === 1} onClick={() => props.changePage(1)}>
+              <i className='glyphicon glyphicon-step-backward' />
+            </button>
+            <button className={props.currPage === 1 ? 'disabledPageButton pageingPanel' : 'pageingPanel'}
+              disabled={props.currPage === 1}
+              onClick={() => props.changePage(props.currPage - 1)}>
+              <i className='glyphicon glyphicon-triangle-left' />
+            </button>
+            <input type='number'
+              style={ { maxWidth: '40px' } }
+              className='pageingPanel'
+              value={props.currPage} min="1" max={props.totalPages}
+              onChange={e => props.changePage(e.target.value)} />
+            <span className='pageingPanel'> / { props.totalPages }</span>
+            <button className={props.currPage === props.totalPages ? 'disabledPageButton pageingPanel' : 'pageingPanel'}
+              disabled={props.currPage === props.totalPages}
+              onClick={() => props.changePage(props.currPage + 1)}>
+              <i className='glyphicon glyphicon-triangle-right pageingPanel' />
+            </button>
+            <button className={props.currPage === props.totalPages ? 'disabledPageButton pageingPanel' : 'pageingPanel'}
+              disabled={props.currPage === props.totalPages}
+              onClick={() => props.changePage(props.totalPages)}>
+              <i className='glyphicon glyphicon-step-forward' />
+            </button>
+          </div>
+          <div className='pull-left pageingPanel'>
+            { props.components.sizePerPageDropdown }
+            <span className='pageingPanel'> items per page</span>
+          </div>
+        </div>
+      </div>
+    );
   },
 };
