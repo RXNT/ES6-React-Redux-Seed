@@ -11,31 +11,10 @@ import * as addActions from './actions';
 import SpinnerComponent from '../../uicomponents/spinner/spinner.component';
 import './add-master.component.scss';
 import * as types from './constants';
-import MuiRaisedButton from '../ui-components/mui-raisedButton';
+import HTMLTextField from '../ui-components/html-components/htm-input';
+import HTMLButton from '../ui-components/html-components/htm-button';
 
 const errorImg = require('../../../assets/images/error.png');
-
-const inputComponent = field =>
-  <span>
-    <input {...field.input}
-      type={field.type}
-      ref={field.ref}
-      style={field.style}
-      checked={field.checked}
-      disabled={field.disabled}
-      placeholder={field.placeholder}
-      onChange={field.onChange ? field.onChange : field.input.onChange}
-      value={field.prefillValue ? field.prefillValue : field.input.value}
-      maxLength = {field.maxLength}
-    />
-    {field.isSubmitted && field.meta.error !== '' && field.meta.error !== undefined &&
-    <span>
-      <OverlayTrigger placement="top"
-        overlay={<Tooltip id={field.meta.error}>{field.meta.error}</Tooltip>}>
-        <img src={errorImg} />
-      </OverlayTrigger>
-    </span>}
-  </span>;
 
 /**
  * Defines layout of Add Master Screen
@@ -47,7 +26,6 @@ class AddMasterComponent extends Component {
    */
   constructor(props) {
     super(props);
-    this.saveInfo = this.saveInfo.bind(this);
   }
 
   /**
@@ -63,13 +41,11 @@ class AddMasterComponent extends Component {
  * This function saves information to database
  * @param {object} e - Event Object
  */
-  saveInfo(e) {
-    e.preventDefault();
-    this.props.actions.saveInfo(this.props.formValues)
-      .then(() => {
-        this.props.history.push('/Search');
-      });
-  }
+onSubmit(values){
+  this.props.actions.saveInfo(values).then(() => {
+      this.props.history.push('/Search');
+    });
+}
 
   /**
    * Prepare layout for component which will be rendered in browser
@@ -81,49 +57,50 @@ class AddMasterComponent extends Component {
       errorMsgs = this.props.validationMessages.join(' ');
     }
 
+    const {handleSubmit} = this.props
     return (
-      <div>
-        <div className="table">
-          <div className="row">
-            <div className="col-md-4">
-              <h4>Add Patients</h4>
+      <form onSubmit= {handleSubmit(this.onSubmit.bind(this))}>
+        <div>
+          <div className="table">
+            <div className="row">
+              <div className="col-md-4">
+                <h4>Add Patients</h4>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="table tab-content">
-          {this.props.loading && <SpinnerComponent/>}
-          {errorMsgs.length > 0 && <div className="row redBorderTxt wordWrap">{errorMsgs}</div>}
-          <div className="row">
-            <div className="col-md-1 col-sm-1 col-sx-1">
-              First Name:
+          <div className="table tab-content">
+            {this.props.loading && <SpinnerComponent/>}
+            {errorMsgs.length > 0 && <div className="row redBorderTxt wordWrap">{errorMsgs}</div>}
+            <div className="row">
+              <div className="col-md-1 col-sm-1 col-sx-1">
+                First Name:
+              </div>
+              <div className="col-md-2 col-sm-2 col-sx-2">
+                <Field type="text" name="name"
+                  component={HTMLTextField}/>
+              </div>
             </div>
-            <div className="col-md-2 col-sm-2 col-sx-2">
-              <Field type="text" name="name"
-                isSubmitted={this.props.isSubmitted} component={inputComponent}/>
+            <div className="row">
+              <div className="col-md-1 col-sm-1 col-sx-1">
+                Email:
+              </div>
+              <div className="col-md-2 col-sm-2 col-sx-2">
+                <Field type="text" name="email"
+                  component={HTMLTextField}/>
+              </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="col-md-1 col-sm-1 col-sx-1">
-              Email:
-            </div>
-            <div className="col-md-2 col-sm-2 col-sx-2">
-              <Field type="text" name="email"
-                isSubmitted={this.props.isSubmitted} component={inputComponent}/>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-12 col-sm-12 col-xs-12 tdTopAlign">
-              <div className="pull-right mainHeaderButtons">
-                <Link to="/search"><input type="button"
-                  className="btnAllYellow pull-right" value="Cancel" /></Link>
-                <MuiRaisedButton label="Save" onClick={this.saveInfo} primary={true}/>
-                <input type="button" className="btnAllGreen pull-right"
-                  value="Save" onClick={this.saveInfo} />
+            <div className="row">
+              <div className="col-md-12 col-sm-12 col-xs-12 tdTopAlign">
+                <div className="pull-right mainHeaderButtons">
+                  <Link to="/search"><HTMLButton
+                    className="btnAllYellow pull-right" label="Cancel" style={{height:50, width:100}} /></Link>
+                  <HTMLButton className="btnAllRed" type='submit' label='Submit' style={{height:50, width:100}} />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </form>
     );
   }
 }
@@ -132,22 +109,24 @@ class AddMasterComponent extends Component {
  * This function validates form data
  * @param {object} values - form data entered by user
  */
-function validate(values) {
-  const errors = {};
-  if (!values.name || values.name === '' || values.name === null) {
-    errors.name = 'First Name is required.';
-  }
-
-  if (!values.email || values.email === '' || values.email === null || values.email === undefined) {
-    errors.email = 'Email is required.';
-  } else {
-    const emailRegEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (!emailRegEx.test(values.email)) {
-      errors.email = 'Email is invalid.';
+const validate = values => {
+  const errors = {}
+  const requiredFields = [
+    'name',
+    'email',
+  ]
+  requiredFields.forEach(field => {
+    if (!values[field]) {
+      errors[field] = `${field} is required`
     }
+  })
+  if (
+    values.email &&
+    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+  ) {
+    errors.email = 'Invalid email address'
   }
-
-  return errors;
+  return errors
 }
 
 AddMasterComponent.propTypes = {

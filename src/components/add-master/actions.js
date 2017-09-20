@@ -70,7 +70,7 @@ export function getById(id) {
       .then((response) => {
         stopSpinner();
         dispatch({
-          type: types.COMPONENTS_ADD_MASTER_ACTION_SUCCESS,
+          type: types.COMPONENTS_ADD_MASTER_ACTION_LOAD_ITEM,
           data: response,
         })
           .catch((e) => {
