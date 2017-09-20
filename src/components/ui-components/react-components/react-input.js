@@ -16,7 +16,6 @@ const uiComponent = class HtmInput extends Component {
   render() {
     const { type, placeholder, sheet, classes, input, style, meta, ...custom } = this.props;
     const className = `form-group ${meta.touched && meta.error ? 'has-error' : ''}`;
-    console.log("Form input props", this.props);
     return (
       <div className = {className} >
         <input

@@ -11,8 +11,8 @@ import * as addActions from './actions';
 import SpinnerComponent from '../../uicomponents/spinner/spinner.component';
 import './add-master.component.scss';
 import * as types from './constants';
-import HTMLTextField from '../ui-components/html-components/htm-input';
-import HTMLButton from '../ui-components/html-components/htm-button';
+import ReactTextField from '../ui-components/react-components/react-input';
+import ReactButton from '../ui-components/react-components/react-button';
 
 const errorImg = require('../../../assets/images/error.png');
 
@@ -32,6 +32,7 @@ class AddMasterComponent extends Component {
    * Serires of actions will be executed before the initial render of component
    */
   componentWillMount() {
+    this.props.actions.reset();
     if (this.props.match.params.id) {
       this.props.actions.getById(this.props.match.params.id);
     }
@@ -77,7 +78,7 @@ onSubmit(values){
               </div>
               <div className="col-md-2 col-sm-2 col-sx-2">
                 <Field type="text" name="name"
-                  component={HTMLTextField}/>
+                  component={ReactTextField}/>
               </div>
             </div>
             <div className="row">
@@ -86,15 +87,15 @@ onSubmit(values){
               </div>
               <div className="col-md-2 col-sm-2 col-sx-2">
                 <Field type="text" name="email"
-                  component={HTMLTextField}/>
+                  component={ReactTextField}/>
               </div>
             </div>
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12 tdTopAlign">
                 <div className="pull-right mainHeaderButtons">
-                  <Link to="/search"><HTMLButton
+                  <Link to="/search"><ReactButton
                     className="btnAllYellow pull-right" label="Cancel" style={{height:50, width:100}} /></Link>
-                  <HTMLButton className="btnAllRed" type='submit' label='Submit' style={{height:50, width:100}} />
+                  <ReactButton className="btnAllRed" type='submit' label='Submit' style={{height:50, width:100}} />
                 </div>
               </div>
             </div>

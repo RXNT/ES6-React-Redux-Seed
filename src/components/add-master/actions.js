@@ -80,3 +80,10 @@ export function getById(id) {
       });
   };
 }
+
+export function reset() {
+  return{
+    type: types.COMPONENTS_ADD_MASTER_ACTION_RESET,
+    data: {},
+  }
+}
