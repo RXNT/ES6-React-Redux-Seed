@@ -10,8 +10,8 @@ import * as addActions from './actions';
 import SpinnerComponent from '../../uicomponents/spinner/spinner.component';
 import './add-master.component.scss';
 import * as types from './constants';
-import ReactTextField from '../ui-components/react-components/react-input';
-import ReactButton from '../ui-components/react-components/react-button';
+import ReactTextField from '../../uicomponents/react-components/react-input';
+import ReactButton from '../../uicomponents/react-components/react-button';
 
 
 /**
