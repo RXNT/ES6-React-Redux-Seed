@@ -77,7 +77,13 @@ class SearchMasterComponent extends Component {
         <div className="table tab-content">
           <div className="row">
             <BootstrapTable selectRow={selectRowProp} minHeight="300px" data={this.props.data}
-              pagination={true} options={options}>
+              pagination={true} options={options} tableHeaderClass="bootstrapTableHeader"
+              headerContainerClass="bootstrapTableHeaderContainer"
+              bodyContainerClass="bootstrapTableBodyContainer"
+              tableBodyClass="bootstrapTableBody"
+              trClassName="bootstrapTableGridRow"
+              containerClass="bootstrapContainer"
+            >
               <TableHeaderColumn dataField="id" dataFormat={this.idFormatter} headerAlign="center"
                 editable={false} isKey ={true} dataSort={true} >Id</TableHeaderColumn>
               <TableHeaderColumn dataField="name" headerAlign="center" editable={false} filter={{ type: 'TextFilter', delay: 50 }} >Name</TableHeaderColumn>

@@ -63,35 +63,35 @@ module.exports = {
       <div className='row'>
         <div className='col-md-6 col-sm-6 col-xs-6'>
           <div className='pull-left'>
-            <button className={props.currPage === 1 ? 'disabledPageButton pageingPanel' : 'pageingPanel'}
+            <button className={props.currPage === 1 ? 'disabledPageButton pagingPanel' : 'pagingPanel'}
               disabled={props.currPage === 1} onClick={() => props.changePage(1)}>
               <i className='glyphicon glyphicon-step-backward' />
             </button>
-            <button className={props.currPage === 1 ? 'disabledPageButton pageingPanel' : 'pageingPanel'}
+            <button className={props.currPage === 1 ? 'disabledPageButton pagingPanel' : 'pagingPanel'}
               disabled={props.currPage === 1}
               onClick={() => props.changePage(props.currPage - 1)}>
               <i className='glyphicon glyphicon-triangle-left' />
             </button>
             <input type='number'
               style={ { maxWidth: '40px' } }
-              className='pageingPanel'
+              className='pagingPanel'
               value={props.currPage} min="1" max={props.totalPages}
               onChange={e => props.changePage(e.target.value)} />
-            <span className='pageingPanel'> / { props.totalPages }</span>
-            <button className={props.currPage === props.totalPages ? 'disabledPageButton pageingPanel' : 'pageingPanel'}
+            <span className='pagingPanel'> / { props.totalPages }</span>
+            <button className={props.currPage === props.totalPages ? 'disabledPageButton pagingPanel' : 'pagingPanel'}
               disabled={props.currPage === props.totalPages}
               onClick={() => props.changePage(props.currPage + 1)}>
-              <i className='glyphicon glyphicon-triangle-right pageingPanel' />
+              <i className='glyphicon glyphicon-triangle-right pagingPanel' />
             </button>
-            <button className={props.currPage === props.totalPages ? 'disabledPageButton pageingPanel' : 'pageingPanel'}
+            <button className={props.currPage === props.totalPages ? 'disabledPageButton pagingPanel' : 'pagingPanel'}
               disabled={props.currPage === props.totalPages}
               onClick={() => props.changePage(props.totalPages)}>
               <i className='glyphicon glyphicon-step-forward' />
             </button>
           </div>
-          <div className='pull-left pageingPanel'>
+          <div className='pull-left pagingPanel'>
             { props.components.sizePerPageDropdown }
-            <span className='pageingPanel'> items per page</span>
+            <span className='pagingPanel'> items per page</span>
           </div>
         </div>
       </div>
