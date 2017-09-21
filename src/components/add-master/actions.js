@@ -81,9 +81,12 @@ export function getById(id) {
   };
 }
 
+/**
+ * Function to reset the data object
+ */
 export function reset() {
-  return{
+  return {
     type: types.COMPONENTS_ADD_MASTER_ACTION_RESET,
     data: {},
-  }
+  };
 }

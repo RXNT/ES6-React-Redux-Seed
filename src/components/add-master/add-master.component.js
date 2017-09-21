@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { reduxForm, Field, getFormValues, isValid } from 'redux-form';
-import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
@@ -14,20 +13,11 @@ import * as types from './constants';
 import ReactTextField from '../ui-components/react-components/react-input';
 import ReactButton from '../ui-components/react-components/react-button';
 
-const errorImg = require('../../../assets/images/error.png');
 
 /**
  * Defines layout of Add Master Screen
  */
 class AddMasterComponent extends Component {
-  /**
-   * Attach component scope to all functions 
-   * @constructor
-   */
-  constructor(props) {
-    super(props);
-  }
-
   /**
    * Serires of actions will be executed before the initial render of component
    */
@@ -43,11 +33,11 @@ class AddMasterComponent extends Component {
  * This function saves information to database
  * @param {object} e - Event Object
  */
-onSubmit(values){
-  this.props.actions.saveInfo(values).then(() => {
+  onSubmit(values) {
+    this.props.actions.saveInfo(values).then(() => {
       this.props.history.push('/Search');
     });
-}
+  }
 
   /**
    * Prepare layout for component which will be rendered in browser
@@ -59,7 +49,7 @@ onSubmit(values){
       errorMsgs = this.props.validationMessages.join(' ');
     }
 
-    const {handleSubmit} = this.props
+    const { handleSubmit } = this.props;
     return (
       <form onSubmit= {handleSubmit(this.onSubmit.bind(this))}>
         <div>
@@ -95,8 +85,8 @@ onSubmit(values){
               <div className="col-md-12 col-sm-12 col-xs-12 tdTopAlign">
                 <div className="pull-right mainHeaderButtons">
                   <Link to="/search"><ReactButton
-                    className="btnAllYellow pull-right" label="Cancel" style={{height:50, width:100}} /></Link>
-                  <ReactButton className="btnAllRed" type='submit' label='Submit' style={{height:50, width:100}} />
+                    className="btnAllYellow pull-right" label="Cancel" style={{ height: 50, width: 100 }} /></Link>
+                  <ReactButton className="btnAllRed" type='submit' label='Submit' style={{ height: 50, width: 100 }} />
                 </div>
               </div>
             </div>
@@ -111,25 +101,25 @@ onSubmit(values){
  * This function validates form data
  * @param {object} values - form data entered by user
  */
-const validate = values => {
-  const errors = {}
+const validate = (values) => {
+  const errors = {};
   const requiredFields = [
     'name',
     'email',
-  ]
-  requiredFields.forEach(field => {
+  ];
+  requiredFields.forEach((field) => {
     if (!values[field]) {
-      errors[field] = `${field} is required`
+      errors[field] = `${field} is required`;
     }
-  })
+  });
   if (
     values.email &&
     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
   ) {
-    errors.email = 'Invalid email address'
+    errors.email = 'Invalid email address';
   }
-  return errors
-}
+  return errors;
+};
 
 AddMasterComponent.propTypes = {
   actions: PropTypes.object.isRequired,
