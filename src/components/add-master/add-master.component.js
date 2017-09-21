@@ -32,9 +32,10 @@ class AddMasterComponent extends Component {
    * Serires of actions will be executed before the initial render of component
    */
   componentWillMount() {
-    this.props.actions.reset();
     if (this.props.match.params.id) {
       this.props.actions.getById(this.props.match.params.id);
+    } else {
+      this.props.actions.reset();
     }
   }
 
