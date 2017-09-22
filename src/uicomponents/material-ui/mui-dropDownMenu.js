@@ -13,7 +13,8 @@ const uiComponent = class MuiDropdown extends Component {
    */
   constructor(props) {
     super(props);
-    this.state = { value: 1 };
+    this.state = { value: this.props.options[0] };
+    this.handleChange = this.handleChange.bind(this);
   }
   /**
    * handle change in the state of dropdown
@@ -21,28 +22,34 @@ const uiComponent = class MuiDropdown extends Component {
    * @param {*} index 
    * @param {*} value 
    */
-  handleChange(event, index, value) { this.setState({ value }); }
+  handleChange(event, index, value) {
+    this.setState({ value });
+    this.props.input.onChange(value);
+  }
+
   /**
    * Renders a React element into the DOM in the supplied container 
    */
   render() {
-    const { sheet, menuItems, classes, input, style, meta, ...custom } = this.props;
-    let value = 0;
+    const { sheet, options, classes, input, style, meta, ...custom } = this.props;
     return (
-      <DropDownMenu
-        value={this.state.value}
-        onChange={this.handleChange}
-        className={classes.menu}
-        style={style}
-        {...input}
-        {...custom}
-      >
-      {menuItems.map((menu) => <MenuItem key={menu} value={++value} primaryText={menu}/> //eslint-disable-line
-        )}
-      </DropDownMenu>
+      <div>
+        <DropDownMenu
+          value={this.state.value}
+          onChange={this.handleChange}
+          className={classes.menu}
+          style={style}
+          {...custom}
+        >
+          {options.map((menu, index) =>
+            <MenuItem key={index} value={menu} primaryText={menu} />,
+          )}
+        </DropDownMenu>
+      </div>
     );
   }
 };
+
 
 /**
  * Default styles that are applied to the above component
@@ -57,4 +64,3 @@ const defaultStyles = {
  * Export the UI Component after applying styles
  */
 export default injectSheet(defaultStyles)(uiComponent);
-

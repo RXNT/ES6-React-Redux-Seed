@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
+
 /**
  * HtmInput component which extends Component
  */
@@ -25,7 +26,7 @@ const uiComponent = class HtmInput extends Component {
           { ...input }
           { ...custom }
         />
-        <div className= "text-danger">
+        <div className= "text-danger" style={{ marginLeft: 5 }}>
           {meta.touched ? meta.error : ''}
         </div>
       </div>

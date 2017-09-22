@@ -5,14 +5,17 @@ import { reduxForm, Field, getFormValues, isValid } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
+import _ from 'lodash';
 
 import * as addActions from './actions';
 import SpinnerComponent from '../../uicomponents/spinner/spinner.component';
 import './add-master.component.scss';
 import * as types from './constants';
 import ReactTextField from '../../uicomponents/react-components/react-input';
+import MuiTextField from '../../uicomponents/material-ui/mui-textField';
 import ReactButton from '../../uicomponents/react-components/react-button';
-
+import MuiDropdown from '../../uicomponents/material-ui/mui-dropDownMenu';
+import ReactDropdown from '../../uicomponents/react-components/react-select';
 
 /**
  * Defines layout of Add Master Screen
@@ -48,7 +51,7 @@ class AddMasterComponent extends Component {
          this.props.validationMessages !== undefined && this.props.validationMessages.length > 0) {
       errorMsgs = this.props.validationMessages.join(' ');
     }
-
+    const options = ['Apple', 'Tiger', 'Zebra', 'Dinosaur'];
     const { handleSubmit } = this.props;
     return (
       <form onSubmit= {handleSubmit(this.onSubmit.bind(this))}>
@@ -78,15 +81,39 @@ class AddMasterComponent extends Component {
               </div>
               <div className="col-md-2 col-sm-2 col-sx-2">
                 <Field type="text" name="email"
-                  component={ReactTextField}/>
+                  component={MuiTextField}/>
               </div>
             </div>
+
+            <div className="row">
+              <div className="col-md-1 col-sm-1 col-sx-1">
+                Select React:
+              </div>
+              <div className="col-md-2 col-sm-2 col-sx-2">
+                <Field name="reactDropDown" options={options}
+                  component={ReactDropdown}/>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-md-1 col-sm-1 col-sx-1">
+                Select MUI:
+              </div>
+              <div className="col-md-2 col-sm-2 col-sx-2">
+                <Field
+                  name="MuiDropdown"
+                  component={MuiDropdown}
+                  options={options}
+                />
+              </div>
+            </div>
+
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12 tdTopAlign">
                 <div className="pull-right mainHeaderButtons">
                   <Link to="/search"><ReactButton
                     className="btnAllYellow pull-right" label="Cancel" style={{ height: 50, width: 100 }} /></Link>
-                  <ReactButton className="btnAllRed" type='submit' label='Submit' style={{ height: 50, width: 100 }} />
+                  <ReactButton className= "btnAllGreen" type='submit' label='Submit' style={{ height: 50, width: 100 }} />
                 </div>
               </div>
             </div>
@@ -109,7 +136,7 @@ const validate = (values) => {
   ];
   requiredFields.forEach((field) => {
     if (!values[field]) {
-      errors[field] = `${field} is required`;
+      errors[field] = `${_.capitalize(field)} is required`;
     }
   });
   if (

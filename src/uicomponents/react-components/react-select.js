@@ -22,6 +22,7 @@ const uiComponent = class HtmSelect extends Component {
         style= {style}
         {...custom}
       >
+        <option value="">Select</option>
         {options.map((option) => <option key={option} value={option}>{option}</option> //eslint-disable-line
         )}
       </select>

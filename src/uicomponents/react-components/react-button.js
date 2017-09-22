@@ -16,7 +16,11 @@ const uiComponent = class HtmButton extends Component {
   render() {
     const { classes, children, label, sheet, style, ...custom } = this.props;
     return (
-      <button className={classes.button} style={style} {...custom} >
+      <button
+        className={classes.button}
+        style={style}
+        {...custom}
+      >
         {label}
       </button>
     );
@@ -27,7 +31,7 @@ const uiComponent = class HtmButton extends Component {
  */
 const defaultStyles = {
   button: {
-    margin: 5,
+    margin: 15,
     height: 40,
     width: 70,
     backgroundColor: 'red',
