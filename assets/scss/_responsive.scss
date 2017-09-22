@@ -15,12 +15,6 @@
      min-height: 1px;
      font-size-adjust: inherit;
     }
- .bmodal.modal-dialog.iframemodal {
-    max-width: 85vw !important;
-    min-width: 600px;
-    margin: 15px auto !important;
-    width: auto;
-  }
 }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   .react-bs-table {
@@ -45,22 +39,5 @@
 
   .print {
     display: block;
-  }
-
-  .modal-content {
-    border: none;
-  }
-
-  .printList {
-    height: auto;
-  }
-
-  .modal-open .modal {
-    overflow: hidden !important;
-  }
-
-  .printrow img {
-    display: block;
-    margin: auto;
   }
 }
