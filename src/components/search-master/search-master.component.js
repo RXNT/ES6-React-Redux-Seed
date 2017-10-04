@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table-extras';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import * as samplePage1Actions from './actions';
 import SpinnerComponent from '../../uicomponents/spinner/spinner.component';
 import * as appUtils from '../../utils/app-utils';
