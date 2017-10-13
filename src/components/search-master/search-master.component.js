@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
+import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+
 import * as samplePage1Actions from './actions';
 import SpinnerComponent from '../../uicomponents/spinner/spinner.component';
 import * as appUtils from '../../utils/app-utils';
@@ -47,15 +49,55 @@ class SearchMasterComponent extends Component {
   }
 
   /**
+ * This function enable/disable whether to expand or collapse
+ * @param {object} row - data grid row information
+ */
+  isExpandableRow(row) { // eslint-disable-line no-unused-vars
+    return true;
+  }
+
+  /**
+ * This function renders expanded component
+ * @param {object} row - data grid row information
+ */
+  expandComponent(row) { // eslint-disable-line no-unused-vars
+    return (
+      <span>
+        Expanded Row Component Text goes here
+      </span>
+    );
+  }
+
+  /**
+ * This function renders collapse/expand icon
+ * @param {boolean} isExpandableRow - row is expandable or not
+ * @param {boolean} isExpanded - row is expanded or not
+ */
+  expandColumnComponent({ isExpandableRow, isExpanded }) {
+    let expandIcon = null;
+
+    if (isExpandableRow) {
+      expandIcon = isExpanded ? <Glyphicon glyph="chevron-right"
+        className="glyPhiconArrow glyphiconRed" /> :
+        <Glyphicon glyph="chevron-up" className="glyPhiconArrow glyphiconYellow" />;
+    }
+    return (
+      <div> { expandIcon } </div>
+    );
+  }
+
+  /**
    * Prepare layout for component which will be rendered in browser
    */
   render() {
     const selectRowProp = {
       mode: 'checkbox',
       bgColor: '#CAE1FF',
+      clickToExpand: true, // click to expand row, default is false
     };
 
     const options = {
+      expandRowBgColor: 'rgb(242, 255, 163)',
       paginationPanel: appUtils.renderPaginationPanel,
       page: 1, // which page you want to show as default
       sizePerPageList: [5, 10, 20], // you can change the dropdown list for size per page
@@ -83,7 +125,13 @@ class SearchMasterComponent extends Component {
               tableBodyClass="bootstrapTableBody"
               trClassName="bootstrapTableGridRow"
               containerClass="bootstrapContainer"
-            >
+              expandableRow={ this.isExpandableRow }
+              expandComponent={ this.expandComponent }
+              expandColumnOptions={ {
+                expandColumnVisible: true,
+                expandColumnComponent: this.expandColumnComponent,
+                columnWidth: 30,
+              } }>
               <TableHeaderColumn dataField="id" dataFormat={this.idFormatter} headerAlign="center"
                 editable={false} isKey ={true} dataSort={true} >Id</TableHeaderColumn>
               <TableHeaderColumn dataField="name" headerAlign="center" editable={false} filter={{ type: 'TextFilter', delay: 50 }} >Name</TableHeaderColumn>
