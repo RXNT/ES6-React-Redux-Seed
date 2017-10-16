@@ -10,7 +10,7 @@ import injectSheet from 'react-jss';
 /**
  * HtmInput component which extends Component
  */
-const uiComponent = class HtmInput extends Component {
+class ReactInput extends Component {
   /**
    * Renders a React element into the DOM in the supplied container 
    */
@@ -32,7 +32,7 @@ const uiComponent = class HtmInput extends Component {
       </div>
     );
   }
-};
+}
 
 /**
  * Default styles that are directly applied to the above component
@@ -46,4 +46,4 @@ const defaultStyles = {
 /**
  * Export the UI Component after applying styles
  */
-export default injectSheet(defaultStyles)(uiComponent);
+export default injectSheet(defaultStyles)(ReactInput);

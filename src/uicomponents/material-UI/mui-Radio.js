@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Checkbox from 'material-ui/Checkbox';
+import { Radio, RadioGroup } from 'material-ui/Radio';
 import { FormControlLabel } from 'material-ui/Form';
 
 /**
  * @args: [options]
  */
-class MuiCheckbox extends Component {
+class MuiRadio extends Component {
   /**
    *
    */
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.options[1],
+      value: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -32,36 +32,34 @@ class MuiCheckbox extends Component {
   render() {
     const { classes, options, style, input, meta, ...custom } = this.props;
     return (
-      <div>
+      <RadioGroup
+        className={classes.radio}
+        {...input}
+        value={this.state.value}
+        onClick= {this.handleChange}
+        {...custom}
+      >
         {options.map(option => (
           <FormControlLabel key={option}
-            control={
-              <Checkbox
-                checked = {this.state.value === option}
-                onClick= {this.handleChange}
-                className={classes.checked}
-                {...input}
-                value={option}
-                {...custom}
-              />
-            }
+            value={option}
+            control={<Radio />}
             label={option}
           />
         ))}
-      </div>
+      </RadioGroup>
     );
   }
 }
 
 const styles = {
-  checked: {
+  radio: {
     margin: 1,
   },
 };
 
-MuiCheckbox.propTypes = {
+MuiRadio.propTypes = {
   classes: PropTypes.object.isRequired,
   options: PropTypes.array.isRequired,
 };
 
-export default withStyles(styles)(MuiCheckbox);
+export default withStyles(styles)(MuiRadio);

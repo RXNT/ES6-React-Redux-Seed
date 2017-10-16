@@ -9,7 +9,7 @@ import injectSheet from 'react-jss';
 /**
  * HtmSelect component which extends Component
  */
-const uiComponent = class HtmSelect extends Component {
+class ReactSelect extends Component {
   /**
    * Renders a React element into the DOM in the supplied container 
    */
@@ -28,7 +28,7 @@ const uiComponent = class HtmSelect extends Component {
       </select>
     );
   }
-};
+}
 
 /**
  * Default styles that are directly applied to the above component
@@ -42,4 +42,4 @@ const defaultStyles = {
 /**
  * Exports the UI Component after applying styles
  */
-export default injectSheet(defaultStyles)(uiComponent);
+export default injectSheet(defaultStyles)(ReactSelect);

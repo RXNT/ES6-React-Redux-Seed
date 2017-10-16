@@ -1,38 +1,60 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
 import TextField from 'material-ui/TextField';
-import injectSheet from 'react-jss';
+
+const styles = theme => ({
+  textField: {
+    marginLeft: theme.spacing.marginLeft,
+    marginRight: theme.spacing.marginRight,
+    width: theme.spacing.width,
+  },
+});
 
 /**
- * MuiTextField component which extends Component
+ * 
  */
-const uiComponent = class MuiTextField extends Component {
+class MuiTextField extends Component {
   /**
-   * Renders a React element into the DOM in the supplied container 
+   * 
+   * @param {*} props 
+   */
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  /**
+   * 
+   * @param {*} event 
+   */
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+  /**
+   * 
    */
   render() {
     const { sheet, classes,
       input, style, meta: { touched, error }, ...custom } = this.props;
     return (
       <TextField
-        className = {classes.input}
-        style= {style}
-        errorText= { touched ? error : '' }
+        className = {classes.textField}
+        style={style}
+        value={this.state.value}
+        onChange={this.handleChange}
+        error={touched && error}
         { ...input }
         { ...custom }
       />
     );
   }
-};
-/**
- * Default styles that are applied to the above component
- */
-const defaultStyles = {
-  input: {
-    margin: 5,
-  },
+}
+
+MuiTextField.propTypes = {
+  classes: PropTypes.object.isRequired,
 };
 
-/**
- * Export the UI Component after applying styles
- */
-export default injectSheet(defaultStyles)(uiComponent);
+export default withStyles(styles)(MuiTextField);

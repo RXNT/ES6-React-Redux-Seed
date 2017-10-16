@@ -1,15 +1,16 @@
 /**
- * HtmCheckbox
- * Renders a HTML Checkbox after applying react-jss styles
+ * ReactDatePicker
+ * Renders a HTML input after applying react-jss styles
  * 09/15/2017
  */
 
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
+
 /**
- * HtmCheckbox component which extends Component
+ * ReactInput component which extends Component
  */
-class ReactCheckbox extends Component {
+class ReactDatePicker extends Component {
   /**
    * Renders a React element into the DOM in the supplied container 
    */
@@ -19,7 +20,7 @@ class ReactCheckbox extends Component {
       <input
         style = {style}
         className = {classes.input}
-        type="checkbox"
+        type='date'
         { ...input }
         { ...custom }
       />
@@ -39,4 +40,4 @@ const defaultStyles = {
 /**
  * Export the UI Component after applying styles
  */
-export default injectSheet(defaultStyles)(ReactCheckbox);
+export default injectSheet(defaultStyles)(ReactDatePicker);

@@ -9,7 +9,7 @@ import injectSheet from 'react-jss';
 /**
  * Htmbutton component which extends Component
  */
-const uiComponent = class HtmButton extends Component {
+class ReactButton extends Component {
   /**
    * Renders a React element into the DOM in the supplied container 
    */
@@ -22,12 +22,12 @@ const uiComponent = class HtmButton extends Component {
         {...custom}
       >
         {glyphiconClass !== '' && <i className={`${glyphiconClass} glyphicon glyPhiconYellow buttonTabIcon`}></i>}
-        <input type="button" className="buttonTabText pull-right" value={label} />
+        <input type="button" className="buttonTabText pull-right" value={label} {...custom} />
 
       </div>
     );
   }
-};
+}
 /**
  * Default styles that are directly applied to the above component
  */
@@ -43,4 +43,4 @@ const defaultStyles = {
 /**
  * Export the UI Component after applying styles
  */
-export default injectSheet(defaultStyles)(uiComponent);
+export default injectSheet(defaultStyles)(ReactButton);
