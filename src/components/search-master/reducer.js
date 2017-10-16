@@ -8,6 +8,8 @@ import initialState from './initial.state';
  */
 export default function searchMasterReducer(state = initialState, action = {}) {
   switch (action.type) {
+    case types.COMPONENTS_SEARCH_MASTER_RESET_STATE:
+      return {};
     case types.COMPONENTS_SEARCH_MASTER_SPINNER_START:
       return {
         ...state,

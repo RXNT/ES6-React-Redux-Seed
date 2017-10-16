@@ -2,12 +2,12 @@
 
 body {
   font-family: $font-family !important;
-  font-size: $font-size !important;
+  font-size: $font-size-14 !important;
   background: #d2e9f5;
-  background: -moz-linear-gradient(top, #d2e9f5 0%, #eaf6fd 44%, #edf8fd 71%, #fcfeff 87%, #ffffff 100%);
-  background: -webkit-linear-gradient(top, #d2e9f5 0%,#eaf6fd 44%,#edf8fd 71%,#fcfeff 87%,#ffffff 100%);
-  background: linear-gradient(to bottom, #d2e9f5 0%,#eaf6fd 44%,#edf8fd 71%,#fcfeff 87%,#ffffff 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= '#d2e9f5', endColorstr='#ffffff',GradientType=0 );
+  background: -moz-linear-gradient(top, #d2e9f5 0%, #eaf6fd 44%, #edf8fd 71%, #fcfeff 87%, $white-color 100%);
+  background: -webkit-linear-gradient(top, #d2e9f5 0%,#eaf6fd 44%,#edf8fd 71%,#fcfeff 87%,$white-color 100%);
+  background: linear-gradient(to bottom, #d2e9f5 0%,#eaf6fd 44%,#edf8fd 71%,#fcfeff 87%,$white-color 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= '#d2e9f5', endColorstr='$white-color',GradientType=0 );
   height: 100%;
   padding-top: 0;
 }
@@ -28,22 +28,22 @@ body {
   width: 100px;
   height: 55px;
   overflow: hidden;
-  color: #fff;
+  color: $white-color;
   text-decoration: underline;
-  text-decoration-color: #fff;
+  text-decoration-color: $white-color;
   margin-top: 5px;
-  font-size: 25px;
+  font-size: $font-size-25;
 }
 
 .redBorderTxt {
-  color: red;
+  color: $red-color;
   background-color: transparent;
   border: 1px solid;
   border-color: transparent;
   border-style: solid;
   border-width: 1px;
   font-family: 'Microsoft Sans Serif';
-  font-size: 13px;
+  font-size: $font-size-13;
   width: inherit;
   font-weight: bold;
   padding: 3px;
@@ -70,9 +70,9 @@ body {
   background-clip: border-box;
   border: 1px solid transparent;
   border-radius: 4px;
-  color: #fff;
+  color: $white-color;
   outline: none;
-  font-size: 13px;
+  font-size: $font-size-13;
   font-weight: 500;
   letter-spacing: 1px;
   padding: 0 10px 0 15px;
@@ -87,7 +87,7 @@ body {
 }
 
 .btnSearch:hover {
-  background: #ffffff;
+  background: $white-color;
   color: #38A8E8;
   border: 1px solid #38A8E8;
 }
@@ -97,9 +97,9 @@ body {
   background-clip: border-box;
   border: 1px solid transparent;
   border-radius: 4px;
-  color: #fff;
+  color: $white-color;
   outline: none;
-  font-size: 13px;
+  font-size: $font-size-13;
   font-weight: 500;
   letter-spacing: 1px;
   padding: 0 10px 0 15px;
@@ -114,7 +114,7 @@ body {
 }
 
 .btnCancel:hover {
-  background: #ffffff;
+  background: $white-color;
   color: #d2b762;
   border: 1px solid #d2b762;
 }
@@ -150,7 +150,7 @@ footer {
   background-color: #C4EEDB !important;
   background-color: rgba(196, 238, 219, 0.06) !important;
   font-weight: bold;
-  color: black !important;
+  color:$black-color !important;
 }
 
 .hide_menu {
@@ -169,7 +169,7 @@ footer {
 }
 
 .hideopen {
-  font-size: 20px;
+  font-size: $font-size-20;
   font-weight: bold;
   width: 20px;
   cursor: pointer;
@@ -180,9 +180,9 @@ footer {
   position: absolute;
   top: 7px;
   right: 5px;
-  font-size: 32px;
+  font-size: $font-size-32;
   margin-left: 50px;
-  color: #fff;
+  color: $white-color;
   text-decoration: none;
 }
 
@@ -197,7 +197,7 @@ span.icons_div {
   height: 36px;
   vertical-align: middle;
   text-align: center;
-  color: #fff;
+  color: $white-color;
   font-weight: bold;
   line-height: 20px;
 }
@@ -215,9 +215,7 @@ span.icons_div {
   min-height: 65vh !important;
 }
 
-.tab-content {
-  padding: 17px 0 !important;
-}
+
 
 .react-flex.react-tab-panel__body.react-tab-panel__body--tab-position-top > .table {
   border: 1px solid #ccc;
@@ -258,7 +256,7 @@ span.icons_div {
   min-height: 42px;
   padding-right: 20px;
   padding-left: 20px;
-  background: #13415a;
+  background: $header-color !important;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
@@ -273,7 +271,7 @@ span.icons_div {
   color: #d1dadf;
   height: 25px;
   line-height: 17px;
-  font-size: 17px;
+  font-size: $font-size-17;
   vertical-align: top;
 }
 
@@ -287,7 +285,7 @@ span#menu_toggle {
   padding: 7px 10px;
   margin-right: 5px;
   margin-left: 5px;
-  color: #ffffff;
+  color: $white-color;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #ededed;
   background-image: -moz-linear-gradient(top, #f2f2f2, #e5e5e5);
@@ -298,7 +296,7 @@ span#menu_toggle {
   background-repeat: repeat-x;
   border-color: #e5e5e5 #e5e5e5 #bfbfbf;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= '#fff2f2f2', endColorstr='#ffe5e5e5', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= '$white-color2f2f2', endColorstr='#ffe5e5e5', GradientType=0);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.075);
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.075);
@@ -354,8 +352,8 @@ a.poplefthome {
   padding-left: 10px;
   border-top: 1px dotted #7e7f80;
   height: 28px;
-  color: #fff;
-  font-size: 12px;
+  color: $white-color;
+  font-size: $font-size-12;
   text-align: left;
   font-family: 'Microsoft Sans Serif';
   text-transform: uppercase;
@@ -370,17 +368,17 @@ ul.current_user li b {
 .popoutmenu ul li {
   margin: 0;
   background: #F0F1F0;
-  border-bottom: 0.25px solid #fff;
+  border-bottom: 0.25px solid $white-color;
   padding: 10px 0 8px 8px;
   margin-left: -40px;
   cursor: pointer;
 }
 
 .popoutmenu ul li span {
-  color: #000;
+  color: $black-color;
   display: inline-block;
   height: 25px;
-  font-size: 20px;
+  font-size: $font-size-20;
   padding-left: 25px;
 }
 
@@ -389,7 +387,7 @@ ul.current_user li b {
   position: relative;
   /* top: -6px; */
   left: 17px;
-  font-size: 12px;
+  font-size: $font-size-12;
   font-weight: 500;
   text-transform: uppercase;
 }
@@ -406,7 +404,7 @@ ul.current_user li b {
   padding-left: 24px;
   height: 25px;
   line-height: 17px;
-  font-size: 17px;
+  font-size: $font-size-17;
   margin-right: 5px;
 }
 
@@ -425,10 +423,7 @@ ul.current_user li b {
 }
 
 body {
-    font-family: 'Roboto' !important;
-    font-size: 14px !important;
-    background: url(../images/bg.gif) repeat-x 0px 45px;
-    height: 100%;
+    background-color:#EEF9FF;
 }
 
 #popoutmenu {
@@ -470,7 +465,7 @@ hr {
 
 .MenuItems {
   background-color: #f0f1f0;
-  font-size: 14px;
+  font-size: $font-size-14;
   text-align: left;
   letter-spacing: 1px;
   padding: 6px 0 6px 6px;
@@ -482,7 +477,7 @@ hr {
 }
 
 .MenuItems a {
-    font-size: 10px;
+    font-size: $font-size-10;
     color: #272727;
     text-decoration: none;
     font-weight: 530;
@@ -496,9 +491,9 @@ hr {
 
 .glyPhiconPlusColor {
   color: #62bcfa;
-  font-size: 20px!important;
+  font-size: $font-size-20 !important;
   padding: 9px 9px 10px 11px;
-  background-color: #fff;
+  background-color: $white-color;
   margin-right: -10px;
   margin-top: -5px;
   margin-bottom: 5px;
@@ -518,8 +513,8 @@ hr {
     z-index: 100000;
     width: 221px;
     height: auto;
-    background: #fff;
-    border-bottom: 0.25px solid #fff;
+    background: $white-color;
+    border-bottom: 0.25px solid $white-color;
     -webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.5);
     -moz-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.5);
     box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.5);
@@ -534,7 +529,7 @@ hr {
 #popoutmenu ul li {
     margin: 0px;
     background: #F0F1F0;
-    border-bottom: 0.25px solid #fff;
+    border-bottom: 0.25px solid $white-color;
     padding: 12px 0px 8px 8px;
     margin-left: -40px;
     cursor: pointer;
@@ -545,7 +540,7 @@ hr {
     position: relative;
     top: -2px;
     left: 8px;
-    font-size: 12px;
+    font-size: $font-size-12;
     text-transform: uppercase;
     font-weight: 530;
 }
@@ -554,7 +549,7 @@ hr {
     color: #272727;
     position: relative;
     left: 15px;
-    font-size: 12px;
+    font-size: $font-size-12;
     font-weight: 530;
     letter-spacing: 1px;
     font-family: 'Roboto';
@@ -571,7 +566,7 @@ hr {
 }
 
 #popoutmenu ul li span {
-    color: #fff;
+    color: $white-color;
     display: inline-block;
     height: 25px;
     padding-left: 25px;
@@ -582,7 +577,7 @@ hr {
 .nav-tabs {
     margin-bottom: 0px;
     letter-spacing: 1px;
-    font-size: 13px !important;
+    font-size: $font-size-13 !important;
 }
 
 .nav-tabs > li {
@@ -597,11 +592,11 @@ hr {
     -moz-border-radius: 4px 4px 0 0;
     border-radius: 4px 4px 0 0;
     background: #274f66;
-    color: #ffffff;
+    color: $white-color;
     text-transform: uppercase;
-    letter-spaceing: 1px !important;
+    letter-spacing: 1px !important;
     font-family: 'Roboto' !important;
-    font-size: 12px !important;
+    font-size: $font-size-12 !important;
 }
 
 .nav-tabs > .active > a,
@@ -618,24 +613,14 @@ hr {
     position: relative;
     z-index: 10;
     overflow: visible;
-    background: #e5e5e5;
+    border: 1px solid #ddd;
+    background-color: $white-color;
     padding: 17px;
-    -webkit-border-radius: 8px;
-    -webkit-border-top-left-radius: 0;
-    -moz-border-radius: 8px;
-    -moz-border-radius-topleft: 0;
-    border-radius: 8px;
-    border-top-left-radius: 0;
-    -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-inner {
-    min-height: 45px;
     padding-right: 20px;
     padding-left: 20px;
-    background: #17445d url(../images/header/header.gif) repeat-x;
     *zoom: 1;
     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
@@ -648,6 +633,8 @@ hr {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+    height:40px;
+
 }
 
 
@@ -669,7 +656,7 @@ hr {
     padding-left: 24px;
     height: 25px;
     line-height: 17px;
-    font-size: 17px;
+    font-size: $font-size-17;
     font-family: 'Roboto';
 }
 
@@ -679,7 +666,7 @@ hr {
     padding-left: 24px;
     height: 25px;
     line-height: 17px;
-    font-size: 17px;
+    font-size: $font-size-17;
     font-family: 'Roboto';
 }
 
@@ -708,19 +695,19 @@ hr {
 .navbar .nav > li > a {
     float: none;
     padding: 13px 5px;
-    color: #fff;
-    font-size: 11px;
+    color: $white-color;
+    font-size: $font-size-11;
     text-decoration: none;
 }
 
 .navbar .nav > li > a div.navcircle {
     border-radius: 50%;
-    border: 2px solid #fff;
+    border: 2px solid $white-color;
     width: 20px;
     height: 20px;
     padding: 2px 1px 0px;
     margin: 0px 0px 0px 0px;
-    font-size: 10px;
+    font-size: $font-size-10;
     line-height: 10px;
     font-weight: 500;
     display: inline-block;
@@ -733,12 +720,12 @@ hr {
 
 div.rnavcircle {
     border-radius: 50%;
-    border: 2px solid #fff;
+    border: 2px solid $white-color;
     width: 20px;
     height: 20px;
     padding: 2px 1px 0px;
     margin: 0px 0px 0px 0px;
-    font-size: 10px;
+    font-size: $font-size-10;
     line-height: 10px;
     font-weight: 500;
     display: inline-block;
@@ -752,12 +739,12 @@ div.rnavcircle {
 
 div.gnavcircle {
     border-radius: 50%;
-    border: 2px solid #fff;
+    border: 2px solid $white-color;
     width: 20px;
     height: 20px;
     padding: 2px 1px 0px;
     margin: 0px 0px 0px 0px;
-    font-size: 10px;
+    font-size: $font-size-10;
     line-height: 10px;
     font-weight: 500;
     display: inline-block;
@@ -771,12 +758,12 @@ div.gnavcircle {
 
 div.onavcircle {
     border-radius: 50%;
-    border: 2px solid #fff;
+    border: 2px solid $white-color;
     width: 20px;
     height: 20px;
     padding: 2px 1px 0px;
     margin: 0px 0px 0px 0px;
-    font-size: 10px;
+    font-size: $font-size-10;
     line-height: 10px;
     font-weight: 500;
     display: inline-block;
@@ -785,9 +772,9 @@ div.onavcircle {
     top: -1px;
     -webkit-box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, .3);
     box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, .3);
-    background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
+    background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%,$red-color 95%);
     background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, orange);
-    background-image: radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
+    background-image: radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, $red-color 95%);
 }
 
 .navbar .nav > li.rcolor > a div.navcircle {
@@ -795,9 +782,9 @@ div.onavcircle {
 }
 
 .navbar .nav > li.ocolor > a div.navcircle {
-    background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
+    background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, $red-color 95%);
     background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, orange);
-    background-image: radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
+    background-image: radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, $red-color 95%);
 }
 
 .navbar .nav > li.gcolor > a div.navcircle {
@@ -821,7 +808,7 @@ div.onavcircle {
 
 .navbar .nav > li > a div.navcircle:hover,
 .navbar .nav > li > a:hover div.navcircle {
-    color: #fff !important;
+    color: $white-color !important;
     animation-name: spin;
     animation-duration: 3s;
     /* 3 seconds */
@@ -842,7 +829,7 @@ div.onavcircle {
     padding: 7px 10px;
     margin-right: 5px;
     margin-left: 5px;
-    color: #ffffff;
+    color: $white-color;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: #ededed;
     *background-color: #e5e5e5;
@@ -879,14 +866,14 @@ div.onavcircle {
     position: absolute;
     left: 12px;
     top: 5px;
-    font-size: 11px;
+    font-size: $font-size-11;
 }
 
 .subnav #rightsubnav {
     position: absolute;
     right: 12px;
     top: 5px;
-    font-size: 11px;
+    font-size: $font-size-11;
 }
 
 .subnav .nav-collapse {
@@ -909,7 +896,7 @@ div.onavcircle {
     padding: 0px 15px;
     border-right: 1px solid #999;
     line-height: 1em;
-    font-size: 12px;
+    font-size: $font-size-12;
 }
 
 .subnav .nav > li:last-child {
@@ -918,17 +905,17 @@ div.onavcircle {
 
 .subnav .nav > li a:hover {
     background: none;
-    color: #000;
+    color: $black-color;
 }
 
 .topmenu li a i {
-	font-size:14px;
+	font-size:$font-size-14;
 }
 
 .topNavText {
     color: #16445D;
     font-family: Roboto, sans-serif;
-    font-size: 13px;
+    font-size: $font-size-13;
 }
 
 .versionMismatchHeader {
@@ -951,7 +938,7 @@ div.onavcircle {
 
 .nav > li > a:focus,
 .nav > li > a:hover {
-  color: #000;
+  color: $black-color;
   background-color: #D1E8F5 !important;
 }
 
@@ -984,12 +971,12 @@ div.onavcircle {
   position: relative;
   display: block;
   padding: 4px;
-  font-size: 13px;
+  font-size: $font-size-13;
   text-transform: uppercase;
   font-weight: 500;
   border-radius: 0;
   background: #F0F1F0;
-  color: #000;
+  color: $black-color;
 }
 
 .tab-content-main {
@@ -1001,9 +988,6 @@ div.onavcircle {
   min-height: 65vh !important;
 }
 
-.tab-content {
-  padding: 17px 0 !important;
-}
 
 
 .popoutUtility {
@@ -1013,8 +997,8 @@ div.onavcircle {
   z-index: 100000;
   width: 221px;
   height: auto;
-  background: #fff;
-  border-bottom: 0.25px solid #fff;
+  background: $white-color;
+  border-bottom: 0.25px solid $white-color;
   -webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.5);
   -moz-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.5);
   box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.5);
@@ -1045,11 +1029,11 @@ div.onavcircle {
 }
 
 .navbar .nav > li > a {
-  font-size: 14px !important;
+  font-size: $font-size-14 !important;
   float: none;
   padding: 12px 15px;
-  color: #fff;
-  font-size: 12px;
+  color: $white-color;
+  font-size: $font-size-12;
   text-decoration: none;
   line-height: 20px;
 }
@@ -1061,12 +1045,12 @@ div.onavcircle {
 
 .navbar .nav > li > a div.navcircle {
   border-radius: 50%;
-  border: 3px solid #fff;
+  border: 3px solid $white-color;
   width: 23px;
   height: 23px;
   padding: 1px 1px 0 2px;
   margin: 0;
-  font-size: 10px;
+  font-size: $font-size-10;
   line-height: 16px;
   font-weight: 500;
   display: inline-block;
@@ -1079,7 +1063,7 @@ div.onavcircle {
 
 .navbar .nav > li > a div.navcircle:hover,
 .navbar .nav > li > a:hover div.navcircle {
-  color: #fff !important;
+  color: $white-color !important;
   animation-name: spin;
   animation-duration: 3s;
   animation-iteration-count: infinite;
@@ -1103,13 +1087,13 @@ div.onavcircle {
 
 .nav_menu ul.dropdown-menu > li > a:hover {
   background: #cacaca;
-  color: #000;
+  color: $black-color;
 }
 
 .nav_menu ul.dropdown-menu > li ul.dropdown-menu > li > a {
   /* font-weight: bold; */
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: $font-size-14;
 }
 
 .subnav {
@@ -1117,12 +1101,12 @@ div.onavcircle {
   left: 0;
   width: 100%;
   clear: both;
-  background: #c0d3dd;
+  background: $header-color !important;
   display: block;
   position: fixed;
   z-index: 100;
   overflow: visible;
-  font-size: 12px;
+  font-size: $font-size-12;
   padding-top:3px;
   height:34px;
 }
@@ -1131,13 +1115,13 @@ div.onavcircle {
   float: left;
   margin-left: 10px;
   margin-top: 5px;
-  font-size:14px;
+  font-size:$font-size-14;
   min-width: 30%;
 }
 
 .txtTime {
   float: right;
-  color: #fff;
+  color: $white-color;
   padding-left: 10px;
 }
 
@@ -1149,7 +1133,7 @@ div.onavcircle {
   text-align: center;
   float:left;
   width:29%;
-  font-size:10px;
+  font-size:$font-size-10;
 }
 
 .tab-content .table .row [class*=' col-'] {
@@ -1157,5 +1141,75 @@ div.onavcircle {
 }
 
 .maincontent {
-  margin-top: 80px;
+  padding:78px 35px 35px 35px;
+}
+.tdTopAlign{
+  position: fixed;
+  right:50px;
+}
+.pageHeaders{
+    color: #035D84;
+    font-family: Roboto;
+    font-size: $font-size-14;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 0px 5px;
+    text-transform: uppercase;
+}
+
+.buttonTab {
+     border-bottom: 1px solid #ddd;
+     padding: 0px 5px 5px 5px;
+}
+
+.buttonTab:hover {
+     outline: none;
+     border-bottom: 1px solid #A3A3A3;
+     background-color: #EBEDED;
+     
+}
+
+.buttonTabIcon{
+    font-size: $font-size-18;
+    padding: 0px;
+    cursor: pointer;
+}
+
+.buttonTabIconMultiSelect{
+    font-size: $font-size-13;
+    height: 30px;
+    width: 30px;
+    border: 0.5px solid #ddd;
+    cursor: pointer;
+}
+.buttonTabText {
+    color: #212121;
+    font-family: Roboto, sans-serif;
+    font-size: $font-size-13;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    text-align: left;
+    background-color: transparent;
+    border: 0px;
+    outline: none;
+    margin-right: 3px;
+    padding-top: 7px;
+}
+
+
+.topNavText {
+    color: $white-color;
+    font-family: Roboto, sans-serif;
+    font-size: $font-size-13;
+    float: left;
+    padding-top: 10px;
+    font-weight: 300;
+    line-height:5px;
+
+    p {
+      font-size:$font-size-15;
+      color:$white-color;
+      float:right;
+    }
 }

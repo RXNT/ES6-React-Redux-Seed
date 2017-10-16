@@ -14,15 +14,17 @@ const uiComponent = class HtmButton extends Component {
    * Renders a React element into the DOM in the supplied container 
    */
   render() {
-    const { classes, children, label, sheet, style, ...custom } = this.props;
+    const { classes, children, label, sheet, style, glyphiconClass, ...custom } = this.props;
     return (
-      <button
+      <div
         className={classes.button}
         style={style}
         {...custom}
       >
-        {label}
-      </button>
+        {glyphiconClass !== '' && <i className={`${glyphiconClass} glyphicon glyPhiconYellow buttonTabIcon`}></i>}
+        <input type="button" className="buttonTabText pull-right" value={label} />
+
+      </div>
     );
   }
 };

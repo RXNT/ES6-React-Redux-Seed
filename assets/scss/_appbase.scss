@@ -5,53 +5,52 @@
 }
 
 .checkboxList {
-    border: 1px solid #000;
-    background-color: #fff;
-    color: #000;
+    border: 1px solid $black-color;
+    background-color: $white-color;
+    color: $black-color;
     width: 300px;
     height: 100px;
     overflow-y: scroll;
 }
 
 .redBorderTxt {
-    color: red;
-    /*background-color:  #0081c2;*/
+    color:$red-color;
     background-color: transparent;
     border: 1px solid;
     border-color:  transparent;
     border-style: solid;
     border-width: 1px;
     font-family: $font-family;
-    font-size: 13px;
+    font-size: $font-size-13;
     width: inherit;
     font-weight: bold;
     padding: 3px 3px 3px 3px;
 }
 
 .yellowBorderTxt {
-    color: red;
+    color: $red-color;
     background-color: rgba(240, 255, 0, 0.33);
     border: 1px solid;
-    border-color: red;
+    border-color: $red-color;
     border-style: solid;
     border-width: 1px;
     font-family: $font-family;
-    font-size: 10px;
+    font-size: $font-size-10;
     width: inherit;
     font-weight: bold;
     padding: 3px 3px 3px 3px;
 }
 .redText {
-    color: red;
-    background-color: #ffcccc;
+    color: $red-color;
+    background-color: $cosmos;
     font-family: $font-family;
-    font-size: 10px;
+    font-size: $font-size-10;
     width: inherit;
     font-weight: bold;
     padding: 3px 3px 3px 3px;
 }
 .greyOutTextBox {
-    background-color: #ebebe4 !important;
+    background-color: $sugarcane-color !important;
 }
 .img {
     width: auto;
@@ -103,7 +102,7 @@ input[type="checkbox"] {
     /*padding-right: 15px;
   padding-left: 15px;*/
     font-size-adjust: inherit;
-    font-size: 14px!important;
+    font-size: $font-size-14 !important;
 }
 
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
@@ -115,11 +114,11 @@ input[type="checkbox"] {
 }
 .close {
   float: right!important;
-  font-size: 21px!important;
+  font-size: $font-size-21 !important;
   font-weight: bold!important;
   line-height: 1!important;
-  color: #000!important;
-  text-shadow: 0 1px 0 #fff!important;
+  color: $black-color!important;
+  text-shadow: 0 1px 0 $white-color!important;
   filter: alpha(opacity=20)!important;
   opacity: 5!important;
 }

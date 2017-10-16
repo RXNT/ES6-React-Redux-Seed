@@ -112,7 +112,7 @@ class SearchMasterComponent extends Component {
           <div className="row">
             <div className="col-md-4">
               {this.props.loading && <SpinnerComponent/>}
-              <h4>Search Master</h4>
+              <h4 className="pageHeaders">Search Master</h4>
             </div>
           </div>
         </div>

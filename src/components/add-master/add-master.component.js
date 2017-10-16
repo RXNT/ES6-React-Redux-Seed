@@ -59,7 +59,7 @@ class AddMasterComponent extends Component {
           <div className="table">
             <div className="row">
               <div className="col-md-4">
-                <h4>Add Patients</h4>
+                <h4 className="pageHeaders">Add Patients</h4>
               </div>
             </div>
           </div>
@@ -109,11 +109,11 @@ class AddMasterComponent extends Component {
             </div>
 
             <div className="row">
-              <div className="col-md-12 col-sm-12 col-xs-12 tdTopAlign">
+              <div className="col-md-12 col-sm-12 col-xs-12 ">
                 <div className="pull-right mainHeaderButtons">
                   <Link to="/search"><ReactButton
-                    className="btnAllYellow pull-right" label="Cancel" style={{ height: 50, width: 100 }} /></Link>
-                  <ReactButton className= "btnAllGreen" type='submit' label='Submit' style={{ height: 50, width: 100 }} />
+                    className="buttonTab pull-right" label="Cancel" glyphiconClass="glyphicon-remove" /></Link>
+                  <ReactButton className= "buttonTab pull-right" type='submit' label='Submit' glyphiconClass="glyphicon-floppy-save" />
                 </div>
               </div>
             </div>

@@ -2805,7 +2805,7 @@
 .react-date-picker__footer--theme-default .react-date-picker__footer-button:not(.react-date-picker__footer-button--disabled):hover {
   background: #dadada;
   border-color: #dadada;
-  color: #000;
+  color: $black-color;
 }
 
 .react-date-picker__footer--theme-default .react-date-picker__footer-button + .react-date-picker__footer-button {
@@ -3122,8 +3122,8 @@
 .react-date-picker__month-view--theme-default .react-date-picker__month-view-day--in-hover-range .react-date-picker__month-view-day-text,
 .react-date-picker__month-view--theme-default .react-date-picker__month-view-day--in-range .react-date-picker__month-view-day-text,
 .react-date-picker__month-view--theme-default .react-date-picker__month-view-day--value .react-date-picker__month-view-day-text {
-  background: #ffffff padding-box !important;
-  color: #000 !important;
+  background: $white-color padding-box !important;
+  color: $black-color !important;
   border: 1px solid #ccc !important;
 }
 
@@ -3251,7 +3251,7 @@
 
 .react-flex.react-date-picker__nav-bar.react-date-picker__nav-bar--theme-default.react-date-picker__nav-bar--with-history-view.react-flex-v2--align-items-center.react-flex-v2--wrap.react-flex-v2--row.react-flex-v2--display-inline-flex {
   background: #ccc;
-  color: #000;
+  color: $black-color;
   border-radius: 10px;
   margin: 3px;
 }
@@ -3283,14 +3283,14 @@
 
 .react-date-picker__month-view--theme-default .react-date-picker__month-view-day .react-date-picker__month-view-day-text:hover {
   /* background: #ccc padding-box; */
-  border: 1px solid #000;
+  border: 1px solid $black-color;
 }
 
 .react-date-picker__month-view--theme-default .react-date-picker__month-view-day--in-hover-range .react-date-picker__month-view-day-text,
 .react-date-picker__month-view--theme-default .react-date-picker__month-view-day--in-range .react-date-picker__month-view-day-text,
 .react-date-picker__month-view--theme-default .react-date-picker__month-view-day--value .react-date-picker__month-view-day-text {
-  background: #ffffff padding-box !important;
-  color: #000 !important;
+  background: $white-color padding-box !important;
+  color: $black-color !important;
   border: 1px solid #ccc !important;
 }
 
@@ -3344,7 +3344,7 @@ button.react-date-picker__footer-button {
 
 .react-date-picker__nav-bar-arrow.react-date-picker__nav-bar-arrow--next > svg,
 .react-date-picker__nav-bar-arrow.react-date-picker__nav-bar-arrow--prev > svg {
-  fill: #fff;
+  fill: $white-color;
 }
 
 .react-date-picker__nav-bar svg {

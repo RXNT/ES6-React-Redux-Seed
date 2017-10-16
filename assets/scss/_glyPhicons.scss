@@ -15,7 +15,7 @@
   }
   /* Colors */
   .glyPhiconRed {
-    color: red;
+    color: $red-color;
   }
   
   .glyPhiconSearchColor {
@@ -82,7 +82,7 @@
       color: #62bcfa;
       font-size: 16px!important;
       padding: 6px;
-      background-color: #fff;
+      background-color: $white-color;
       margin-right: -6.75px;
       margin-top: 0px;
       margin-bottom: 5px;
@@ -102,7 +102,7 @@
       color: #62bcfa;
       font-size: 20px!important;
       padding: 9px 10px 10px 10px;
-      background-color: #fff;
+      background-color: $white-color;
       margin-right: -10px;
       margin-top: -5px;
       margin-bottom: 5px;
@@ -124,7 +124,7 @@
       color: #62bcfa;
       font-size: 22px!important;
       padding: 9px 10px 10px 10px;
-      background-color: #fff;
+      background-color: $white-color;
       margin-right: -10px;
       margin-top: -5px;
       margin-bottom: 5px;
@@ -144,7 +144,7 @@
       color: #62bcfa;
       font-size: 15px!important;
       padding: 8px;
-      background-color: #fff;
+      background-color: $white-color;
       margin-top: -25px;
       margin-bottom: 5px;
       border-radius: 50px;
@@ -163,7 +163,7 @@
       color: #62bcfa;
       font-size: 15px!important;
       padding: 8px;
-      background-color: #fff;
+      background-color: $white-color;
       margin-top: -25px;
       margin-bottom: 5px;
       border-radius: 50px;
@@ -180,7 +180,7 @@
       color: #62bcfa;
       font-size: 20px!important;
       padding: 9px 9px 10px 11px;
-      background-color: #fff;
+      background-color: $white-color;
       margin-right: -10px;
       margin-top: -5px;
       margin-bottom: 5px;
@@ -197,7 +197,7 @@
       /*color: #5cb85c;
       font-size: 25px!important;*/
   
-      color: #fff;
+      color: $white-color;
       font-size: 18px !important;
   }
   

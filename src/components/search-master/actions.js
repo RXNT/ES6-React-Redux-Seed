@@ -4,6 +4,17 @@ import apiProxy from '../../utils/api-proxy.service';
 import logUtils from '../../utils/log-utils';
 
 /**
+ * Reset state
+ */
+export function resetState() {
+  return function (dispatch) {
+    dispatch({
+      type: types.COMPONENTS_SEARCH_MASTER_RESET_STATE,
+    });
+  };
+}
+
+/**
  * This function update state information to start spinner
  */
 export function startSpinner() {

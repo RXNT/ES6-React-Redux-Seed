@@ -13,7 +13,6 @@ import AddMasterContainerComponent from './add-master/add-master.component';
 import HomeContainer from './home/home.container';
 import VersionMismatchComponent from './partials/version-mismatch.component';
 import * as appActions from './actions';
-import appConfig from '../app.config';
 
 /**
  * Defines layout for application level component
@@ -81,8 +80,12 @@ class App extends Component {
                 </div>
                 <div className="subnav noPrint">
                   <div className="subnav_left">
+                    <div className="topNavText">
+                      Welcome &nbsp;
+                      <p>Dev, Internal</p>
+                    </div>
                   </div>
-                  <div className="subnav_center">{appConfig.copyRightHeader}</div>
+                  <div className="subnav_center"></div>
                 </div>
               </div>
               <div onClick={this.closeMenu} className="maincontent">
