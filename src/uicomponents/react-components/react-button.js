@@ -25,16 +25,26 @@ class ReactButton extends Component {
    * Renders a React element into the DOM in the supplied container 
    */
   render() {
+<<<<<<< HEAD
     const { type = 'button', classes, className, label, sheet, style,
       glyphiconClass = '', glyphiconColor = 'glyphiconBlue', ...custom } = this.props;
     const combinedClassName = `${classes.button} ${className}`;
+=======
+    const { type = 'submit', classes, children, label, sheet, style, glyphiconClass, glyPhiconColor, ...custom } = this.props;
+>>>>>>> 8f3075953ac98ce2d9eb1cb105f157fe98146f33
     return (
       <div
         className={combinedClassName}
         style={style}
       >
+<<<<<<< HEAD
         {glyphiconClass !== '' && <i className={`${glyphiconClass} glyphicon ${glyphiconColor} buttonTabIcon`}></i>}
         <input type={type} className="buttonTabText pull-right" value={label} {...custom} />
+=======
+        {glyphiconClass !== '' && <i className={`${glyphiconClass} glyphicon ${glyPhiconColor} buttonTabIcon`}></i>}
+        <input type={type} className="buttonTabText pull-right" value={label} />
+
+>>>>>>> 8f3075953ac98ce2d9eb1cb105f157fe98146f33
       </div>
     );
   }

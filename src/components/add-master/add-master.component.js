@@ -98,9 +98,10 @@ class AddMasterComponent extends Component {
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12 ">
                 <div className="pull-right mainHeaderButtons">
-                  <Link to="/search"><ReactButton
-                    className="buttonTab pull-right" label="Cancel" glyphiconClass="glyphicon-remove" /></Link>
-                  <ReactButton className= "buttonTab pull-right" type="submit" label='Submit' glyphiconClass="glyphicon-floppy-save" />
+                  <Link to="/search">
+                    <ReactButton className="buttonTab pull-right" label="Cancel" glyphiconClass="glyphicon-remove" glyPhiconColor="glyPhiconYellow" />
+                  </Link>
+                  <ReactButton className= "buttonTab pull-right" type="submit" label='Submit' glyphiconClass="glyphicon-floppy-save" glyPhiconColor="glyPhiconGreen" />
                 </div>
               </div>
             </div>
