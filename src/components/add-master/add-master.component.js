@@ -13,7 +13,7 @@ import './add-master.component.scss';
 import * as types from './constants';
 import ReactTextField from '../../uicomponents/react-components/react-input';
 import ReactButton from '../../uicomponents/react-components/react-button';
-
+import ReactCheckBox from '../../uicomponents/react-components/react-checkbox';
 
 /**
  * Defines layout of Add Master Screen
@@ -84,6 +84,17 @@ class AddMasterComponent extends Component {
                   component={ReactTextField}/>
               </div>
             </div>
+
+            <div className="row">
+              <div className="col-md-1 col-sm-1 col-sx-1">
+                Email:
+              </div>
+              <div className="col-md-2 col-sm-2 col-sx-2">
+                <Field name="checkbox"
+                  component={ReactCheckBox}/>
+              </div>
+            </div>
+
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12 ">
                 <div className="pull-right mainHeaderButtons">

@@ -1,29 +1,40 @@
 /**
- * HtmButton
- * Renders a HTML button after applying react-jss styles
+ * ReactButton
+ * Renders a React button after applying react-jss styles
  * 09/15/2017
  */
 
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
+import PropTypes from 'prop-types';
 /**
- * Htmbutton component which extends Component
+ * ReactButton Class
+ * @class
+ * @augments Component
+ * @param {string} label - Label for the button
+ * @param {string} className - Bootstrap className
+ * @param {string} type - The type of input
+ * @param {object} style - Custom style to be applied
+ * @param {string} glyphiconClass - glyphiconClass value
+ * @param {string} glyphiconColor - glyphiconColor value
+ * @param {object} style - The style to be applied to the component
  */
 class ReactButton extends Component {
   /**
+   * @function render
    * Renders a React element into the DOM in the supplied container 
    */
   render() {
-    const { classes, children, label, sheet, style, glyphiconClass, ...custom } = this.props;
+    const { type = 'button', classes, className, label, sheet, style,
+      glyphiconClass = '', glyphiconColor = 'glyphiconBlue', ...custom } = this.props;
+    const combinedClassName = `${classes.button} ${className}`;
     return (
       <div
-        className={classes.button}
+        className={combinedClassName}
         style={style}
-        {...custom}
       >
-        {glyphiconClass !== '' && <i className={`${glyphiconClass} glyphicon glyPhiconYellow buttonTabIcon`}></i>}
-        <input type="button" className="buttonTabText pull-right" value={label} {...custom} />
-
+        {glyphiconClass !== '' && <i className={`${glyphiconClass} glyphicon ${glyphiconColor} buttonTabIcon`}></i>}
+        <input type={type} className="buttonTabText pull-right" value={label} {...custom} />
       </div>
     );
   }
@@ -33,14 +44,22 @@ class ReactButton extends Component {
  */
 const defaultStyles = {
   button: {
-    margin: 15,
-    height: 40,
-    width: 70,
-    backgroundColor: 'red',
+    margin: 5,
   },
+};
+/**
+ * Typechecking on the props for ReactButton
+ * label
+ * classes 
+ */
+ReactButton.propTypes = {
+  label: PropTypes.string.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 /**
- * Export the UI Component after applying styles
+ * @function injectSheet - Export the UI Component after applying styles
+ * @param {object} defaultStyles - The default style applied to the component
+ * @param {class} ReactButton - Component where the styles are applied
  */
 export default injectSheet(defaultStyles)(ReactButton);

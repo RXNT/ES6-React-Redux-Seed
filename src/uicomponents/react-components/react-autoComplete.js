@@ -1,22 +1,32 @@
+/**
+ * ReactAutoComplete
+ * Renders a React input component with autocomplete
+ * 09/24/2017
+ */
 import React, { Component } from 'react';
 import { Typeahead } from 'react-bootstrap-typeahead';
 import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
 /**
- * MuiAutoComplete component which extends Component
- * @args: options - an array containing the suggestions
+ * ReactAutoComplete Class
+ * @augments Component
+ * @param {[]} options - An array containing the suggestions
+ * @param {string} className - Bootstrap className
+ * @param {object} style - The style to be applied to the component
  */
 class ReactAutoComplete extends Component {
   /**
+   * @function render
    * Renders a React element into the DOM in the supplied container 
    */
   render() {
-    const { options, classes, input, style, meta, ...custom } = this.props;
+    const { options, classes, className, input, style, meta, ...custom } = this.props;
+    const combinedClassName = `${classes.input} ${className}`;
     // Name is deprecated from Typeahead
-    if(input && input) { delete input.name; } // eslint-disable-line  
+    if(input && input.name) { delete input.name; } // eslint-disable-line  
     return (
       <Typeahead
-        className = {classes.input}
+        className = {combinedClassName}
         options={options}
         {...input}
         {...custom}
@@ -29,16 +39,24 @@ class ReactAutoComplete extends Component {
  * Default styles that are applied to the above component
  */
 const defaultStyles = {
-  checkbox: {
+  input: {
     margin: 5,
   },
 };
 
+/**
+ * Typechecking on the props for ReactButton
+ * options
+ * classes 
+ */
 ReactAutoComplete.propTypes = {
   options: PropTypes.array.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 /**
- * Export the UI Component after applying styles
+ * @function injectSheet - Export the UI Component after applying styles
+ * @param {object} defaultStyles - The default style applied to the component
+ * @param {class} ReactAutoComplete - Component where the styles are applied
  */
 export default injectSheet(defaultStyles)(ReactAutoComplete);

@@ -1,24 +1,31 @@
 /**
- * HtmCheckbox
- * Renders a HTML Checkbox after applying react-jss styles
- * 09/15/2017
+ * ReactCheckbox
+ * Renders a React Checkbox after applying react-jss styles
+ * 09/19/2017
  */
 
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
+import PropTypes from 'prop-types';
 /**
- * HtmCheckbox component which extends Component
+ * ReactCheckbox Class
+ * @class
+ * @augments Component
+ * @param {string} className - Bootstrap className
+ * @param {object} style - The style to be applied to the component
  */
 class ReactCheckbox extends Component {
   /**
+   * @function render
    * Renders a React element into the DOM in the supplied container 
    */
   render() {
-    const { sheet, classes, input, style, meta, ...custom } = this.props;
+    const { sheet, classes, className, input, style, meta, ...custom } = this.props;
+    const combinedClassName = `${classes.input} ${className}`;
     return (
       <input
         style = {style}
-        className = {classes.input}
+        className = {combinedClassName}
         type="checkbox"
         { ...input }
         { ...custom }
@@ -37,6 +44,16 @@ const defaultStyles = {
 };
 
 /**
- * Export the UI Component after applying styles
+ * Typechecking on the props for ReactButton
+ * classes 
+ */
+ReactCheckbox.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+/**
+ * @function injectSheet - Export the UI Component after applying styles
+ * @param {object} defaultStyles - The default style applied to the component
+ * @param {class} ReactCheckbox - Component where the styles are applied
  */
 export default injectSheet(defaultStyles)(ReactCheckbox);
