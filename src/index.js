@@ -12,7 +12,7 @@ import initialState from './store/initial.state';
 import App from './containers/app';
 import appConstants from './app.constants';
 import '../assets/scss/styles.scss';
-import theme from './uicomponents/material-UI/mui-Theme';
+import theme from './uicomponents/material-ui/mui-Theme';
 
 const store = configureStore(initialState);
 
