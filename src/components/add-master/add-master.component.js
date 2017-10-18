@@ -14,6 +14,17 @@ import * as types from './constants';
 import ReactTextField from '../../uicomponents/react-components/react-input';
 import ReactButton from '../../uicomponents/react-components/react-button';
 import ReactCheckBox from '../../uicomponents/react-components/react-checkbox';
+import ReactAutoCorrect from '../../uicomponents/react-components/react-autoComplete';
+import ReactDatePicker from '../../uicomponents/react-components/react-datePicker';
+import ReactDialog from '../../uicomponents/react-components/react-dialog';
+import ReactRadio from '../../uicomponents/react-components/react-radio';
+import ReactSelect from '../../uicomponents/react-components/react-select';
+
+import MuiTextField from '../../uicomponents/material-ui/mui-textField';
+import MuiCheckbox from '../../uicomponents/material-ui/mui-checkbox';
+import MuiDialog from '../../uicomponents/material-ui/mui-dialog';
+import MuiRadio from '../../uicomponents/material-ui/mui-radio';
+import MuiSelect from '../../uicomponents/material-ui/mui-select';
 
 /**
  * Defines layout of Add Master Screen
@@ -50,7 +61,7 @@ class AddMasterComponent extends Component {
          this.props.validationMessages !== undefined && this.props.validationMessages.length > 0) {
       errorMsgs = this.props.validationMessages.join(' ');
     }
-    // const options = ['Apple', 'Tiger', 'Zebra', 'Dinosaur']; eslint-disable-line
+    const options = ['Apple', 'Tiger', 'Zebra', 'Dinosaur'];
     const { handleSubmit } = this.props;
     return (
       <form onSubmit= {handleSubmit(this.onSubmit.bind(this))}>
@@ -90,18 +101,44 @@ class AddMasterComponent extends Component {
                 Email:
               </div>
               <div className="col-md-2 col-sm-2 col-sx-2">
-                <Field name="checkbox"
+                <Field name="ReactCheckbox"
                   component={ReactCheckBox}/>
+                <Field name="ReactAutoComplete" options={options}
+                  component={ReactAutoCorrect}/>
+                <Field name="ReactDatepicker"
+                  component={ReactDatePicker}/>
+                <Field name="ReactDialog" buttonLabel="Click" title="Hello" content="Confirmation?"
+                  actionButtonLabel="Sure" action={() => { console.log('clicked'); }}
+                  component={ReactDialog}/>
+                <Field name="React Radio" label="hello"
+                  component={ReactRadio}/>
+                <Field name="ReactSelect" options={options}
+                  component={ReactSelect}/>
               </div>
             </div>
 
+            <div className="col-md-6 col-sm-6 col-sx-6 pull-right">
+              MUIText<Field name="muiTextField"
+                component={MuiTextField}/>
+              <br/>
+              MUICheckbox <Field name="muicheckbox" options={options}
+                component={MuiCheckbox}/>
+              <Field name="MuiDialog" buttonLabel="Click" title="Hello" content="Confirmation?"
+                actionButtonLabel="Sure" action={() => { console.log('clicked'); }}
+                component={MuiDialog}/>
+              <Field name="MuiRadio" options={options}
+                component={MuiRadio}/>
+              <Field name="MuiSelect" options={options}
+                component={MuiSelect}/>
+            </div>
+            ß
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12 ">
                 <div className="pull-right mainHeaderButtons">
                   <Link to="/search">
-                    <ReactButton className="buttonTab pull-right" label="Cancel" glyphiconClass="glyphicon-remove" glyPhiconColor="glyPhiconYellow" />
+                    <ReactButton className="buttonTab pull-right" label="Cancel" glyphiconClass="glyphicon-remove" glyphiconColor="glyPhiconYellow" />
                   </Link>
-                  <ReactButton className= "buttonTab pull-right" type="submit" label='Submit' glyphiconClass="glyphicon-floppy-save" glyPhiconColor="glyPhiconGreen" />
+                  <ReactButton className= "buttonTab pull-right" type="submit" label='Submit' glyphiconClass="glyphicon-floppy-save" glyphiconColor="glyPhiconGreen" />
                 </div>
               </div>
             </div>

@@ -20,7 +20,7 @@ class ReactAutoComplete extends Component {
    * Renders a React element into the DOM in the supplied container 
    */
   render() {
-    const { options, classes, className, input, style, meta, ...custom } = this.props;
+    const { options, classes, className, theme, input, style, meta, ...custom } = this.props;
     const combinedClassName = `${classes.input} ${className}`;
     // Name is deprecated from Typeahead
     if(input && input.name) { delete input.name; } // eslint-disable-line  
@@ -38,14 +38,14 @@ class ReactAutoComplete extends Component {
 /**
  * Default styles that are applied to the above component
  */
-const defaultStyles = {
+const styles = theme => ({
   input: {
-    margin: 5,
+    margin: theme.spacing.unit,
   },
-};
+});
 
 /**
- * Typechecking on the props for ReactButton
+ * Typechecking on the props for ReactAutoComplete
  * options
  * classes 
  */
@@ -56,7 +56,7 @@ ReactAutoComplete.propTypes = {
 
 /**
  * @function injectSheet - Export the UI Component after applying styles
- * @param {object} defaultStyles - The default style applied to the component
+ * @param {object} styles - The default style applied to the component
  * @param {class} ReactAutoComplete - Component where the styles are applied
  */
-export default injectSheet(defaultStyles)(ReactAutoComplete);
+export default injectSheet(styles)(ReactAutoComplete);

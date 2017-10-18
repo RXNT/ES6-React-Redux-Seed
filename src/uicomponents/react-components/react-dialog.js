@@ -12,8 +12,8 @@ import PropTypes from 'prop-types';
  * ReactDialog class
  * @augments Component
  * @param {string} buttonLabel - Button Label for the modal
- * @param {string} modalTitle - Title for the modal 
- * @param {*} modalBody - The content/body of the modal
+ * @param {string} title - Title for the modal 
+ * @param {*} content - The content/body of the modal
  * @param {string} actionButtonLabel - Label for action button (Yes, Submit, Save etc)
  * @param {function} action - The  action that gets executed after 
  * actionButtonLabel has been clicked
@@ -46,15 +46,16 @@ class ReactDialog extends Component {
    * Renders a React element into the DOM in the supplied container 
    */
   render() {
-    const { classes, className, sheet, input, style, meta, buttonLabel,
-      modalTitle, modalBody, action,
+    const { classes, className, theme, sheet, input, style, meta, buttonLabel,
+      title, content, action,
       actionButtonLabel, ...custom } = this.props;
-    const combinedClassName = `${classes.modal} ${className}`;
+    const combinedClassName = `${classes.dialog} ${className}`;
     return (
       <div>
         <Button
           bsStyle="primary"
           bsSize="large"
+          className={classes.button}
           onClick={() => this.setModal(true)}
         >
           {buttonLabel}
@@ -64,11 +65,11 @@ class ReactDialog extends Component {
           className = {combinedClassName} {...custom} >
           <Modal.Header closeButton>
             <Modal.Title>
-              {modalTitle}
+              {title}
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {modalBody}
+            {content}
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={ () => this.setModal(false) }>Close</Button>
@@ -83,14 +84,17 @@ class ReactDialog extends Component {
 /**
  * Default styles that are applied to the above component
  */
-const defaultStyles = {
-  modal: {
-    margin: 'auto', marginTop: '5%',
+const styles = theme => ({
+  dialog: {
+    margin: theme.spacing.unit,
   },
-};
+  button: {
+    margin: theme.spacing.unit,
+  },
+});
 
 /**
- * Typechecking on the props for ReactButton
+ * Typechecking on the props for ReactDialog
  * buttonLabel
  * modalTitle
  * modalBody
@@ -98,15 +102,16 @@ const defaultStyles = {
  * action
  */
 ReactDialog.propTypes = {
+  classes: PropTypes.object.isRequired,
   buttonLabel: PropTypes.string.isRequired,
-  modalTitle: PropTypes.string.isRequired,
-  modalBody: PropTypes.any.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.any.isRequired,
   action: PropTypes.func.isRequired,
   actionButtonLabel: PropTypes.string.isRequired,
 };
 /**
  * @function injectSheet - Export the UI Component after applying styles
- * @param {object} defaultStyles - The default style applied to the component
+ * @param {object} styles - The default style applied to the component
  * @param {class} ReactDialog - Component where the styles are applied
  */
-export default injectSheet(defaultStyles)(ReactDialog);
+export default injectSheet(styles)(ReactDialog);

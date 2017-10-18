@@ -39,7 +39,7 @@ class ReactRadioGroup extends Component {
    * Renders a React element into the DOM in the supplied container 
    */
   render() {
-    const { options, classes, className, sheet, input, style, meta, ...custom } = this.props;
+    const { options, classes, className, theme, sheet, input, style, meta, ...custom } = this.props;
     const combinedClassName = `${classes.input} ${className}`;
     return (
       <div>
@@ -53,14 +53,14 @@ class ReactRadioGroup extends Component {
 /**
  * Default styles that are directly applied to the above component
  */
-const defaultStyles = {
+const styles = theme => ({
   input: {
-    margin: 5,
+    margin: theme.spacing.unit,
   },
-};
+});
 
 /**
- * Typechecking on the props for ReactButton
+ * Typechecking on the props for ReactRadioGroup
  * classes 
  * options
  */
@@ -72,7 +72,7 @@ ReactRadioGroup.propTypes = {
 
 /**
  * @function injectSheet - Export the UI Component after applying styles
- * @param {object} defaultStyles - The default style applied to the component
+ * @param {object} styles - The default style applied to the component
  * @param {class} ReactRadioGroup - Component where the styles are applied
  */
-export default injectSheet(defaultStyles)(ReactRadioGroup);
+export default injectSheet(styles)(ReactRadioGroup);

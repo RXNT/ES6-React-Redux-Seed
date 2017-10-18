@@ -20,7 +20,7 @@ class ReactDatePicker extends Component {
    * Renders a React element into the DOM in the supplied container 
    */
   render() {
-    const { sheet, classes, className, input, style, meta, ...custom } = this.props;
+    const { sheet, classes, className, theme, input, style, meta, ...custom } = this.props;
     const combinedClassName = `${classes.input} ${className}`;
     return (
       <input
@@ -37,14 +37,14 @@ class ReactDatePicker extends Component {
 /**
  * Default styles that are directly applied to the above component
  */
-const defaultStyles = {
+const styles = theme => ({
   input: {
-    margin: 5,
+    margin: theme.spacing.unit,
   },
-};
+});
 
 /**
- * Typechecking on the props for ReactButton
+ * Typechecking on the props for ReactDatePicker
  * classes 
  */
 ReactDatePicker.propTypes = {
@@ -53,7 +53,7 @@ ReactDatePicker.propTypes = {
 
 /**
  * @function injectSheet - Export the UI Component after applying styles
- * @param {object} defaultStyles - The default style applied to the component
+ * @param {object} styles - The default style applied to the component
  * @param {class} ReactDatePicker - Component where the styles are applied
  */
-export default injectSheet(defaultStyles)(ReactDatePicker);
+export default injectSheet(styles)(ReactDatePicker);

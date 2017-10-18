@@ -1,65 +1,95 @@
+/**
+ * MuiRadio
+ * Renders MuiRadio after applying styles
+ * 10/04/2017
+ */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import { Radio, RadioGroup } from 'material-ui/Radio';
+import Radio from 'material-ui/Radio';
 import { FormControlLabel } from 'material-ui/Form';
 
 /**
- * @args: [options]
+ * MuiRadio
+ * @class
+ * @augments Component
+ * @param {[]} options - An Array Containing list of items to be shown
+ * @param {string} className - Bootstrap className
+ * @param {object} style - The style to be applied to the component
  */
 class MuiRadio extends Component {
   /**
-   *
-   */
+  * @constructor
+  * @param {*} props 
+  */
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      value: this.props.options[1],
     };
-
     this.handleChange = this.handleChange.bind(this);
   }
   /**
-   * 
+   * @function handleChange - Handles changes in the checkboxes
+   * @param {*} event 
    */
   handleChange(event) {
     this.setState({ value: event.target.value });
     this.props.input.onChange(event.target.value);
   }
   /**
-   * 
-   */
+  * @function render
+  * Renders a MUI element into the DOM in the supplied container 
+  */
   render() {
-    const { classes, options, style, input, meta, ...custom } = this.props;
+    const { classes, className, options, style, input, meta, ...custom } = this.props;
+    const combinedClassName = `${classes.checkBox}`;
     return (
-      <RadioGroup
-        className={classes.radio}
-        {...input}
-        value={this.state.value}
-        onClick= {this.handleChange}
-        {...custom}
-      >
+      <div>
         {options.map(option => (
           <FormControlLabel key={option}
-            value={option}
-            control={<Radio />}
+            control={
+              <Radio
+                checked = {this.state.value === option}
+                onClick= {this.handleChange}
+                className={combinedClassName}
+                {...input}
+                value={option}
+                {...custom}
+              />
+            }
             label={option}
           />
         ))}
-      </RadioGroup>
+      </div>
     );
   }
 }
 
-const styles = {
-  radio: {
-    margin: 1,
+/**
+ * Default styles applied to the components
+ * @param {*} theme 
+ */
+const styles = theme => ({
+  checkBox: {
+    margin: theme.spacing.unit,
+    padding: theme.spacing.unit,
   },
-};
+});
 
+/**
+ * Typechecking on the props for MuiButton
+ * label
+ * classes 
+ */
 MuiRadio.propTypes = {
   classes: PropTypes.object.isRequired,
   options: PropTypes.array.isRequired,
 };
 
+/**
+ * @function withStyles - Export the UI Component after applying styles
+ * @param {object} styles - The default style applied to the component
+ * @param {class} MuiRadio - Component where the styles are applied
+ */
 export default withStyles(styles)(MuiRadio);

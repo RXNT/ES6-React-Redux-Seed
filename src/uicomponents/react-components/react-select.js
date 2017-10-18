@@ -21,7 +21,7 @@ class ReactSelect extends Component {
    * Renders a React element into the DOM in the supplied container 
    */
   render() {
-    const { sheet, options, classes, className, input, style, meta, ...custom } = this.props;
+    const { sheet, options, classes, className, theme, input, style, meta, ...custom } = this.props;
     const combinedClassName = `${classes.select} ${className}`;
     return (
       <select
@@ -41,14 +41,14 @@ class ReactSelect extends Component {
 /**
  * Default styles that are directly applied to the above component
  */
-const defaultStyles = {
+const styles = theme => ({
   select: {
-    margin: 5,
+    margin: theme.spacing.unit,
   },
-};
+});
 
 /**
- * Typechecking on the props for ReactButton
+ * Typechecking on the props for ReactSelect
  * classes 
  * options
  */
@@ -59,7 +59,7 @@ ReactSelect.propTypes = {
 
 /**
  * @function injectSheet - Export the UI Component after applying styles
- * @param {object} defaultStyles - The default style applied to the component
+ * @param {object} styles - The default style applied to the component
  * @param {class} ReactSelect - Component where the styles are applied
  */
-export default injectSheet(defaultStyles)(ReactSelect);
+export default injectSheet(styles)(ReactSelect);

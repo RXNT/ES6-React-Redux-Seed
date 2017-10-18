@@ -25,7 +25,7 @@ class ReactButton extends Component {
    * Renders a React element into the DOM in the supplied container 
    */
   render() {
-    const { type = 'button', classes, className, label, sheet, style,
+    const { type = 'button', classes, theme, className, label, sheet, style,
       glyphiconClass = '', glyphiconColor = 'glyphiconBlue', ...custom } = this.props;
     const combinedClassName = `${classes.button} ${className}`;
     return (
@@ -42,11 +42,14 @@ class ReactButton extends Component {
 /**
  * Default styles that are directly applied to the above component
  */
-const defaultStyles = {
+
+const styles = theme => ({
   button: {
-    margin: 5,
+    margin: theme.spacing.unit,
+
   },
-};
+});
+
 /**
  * Typechecking on the props for ReactButton
  * label
@@ -59,7 +62,7 @@ ReactButton.propTypes = {
 
 /**
  * @function injectSheet - Export the UI Component after applying styles
- * @param {object} defaultStyles - The default style applied to the component
+ * @param {object} styles - The default style applied to the component
  * @param {class} ReactButton - Component where the styles are applied
  */
-export default injectSheet(defaultStyles)(ReactButton);
+export default injectSheet(styles)(ReactButton);
