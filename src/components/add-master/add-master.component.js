@@ -21,10 +21,14 @@ import ReactRadio from '../../uicomponents/react-components/react-radio';
 import ReactSelect from '../../uicomponents/react-components/react-select';
 
 import MuiTextField from '../../uicomponents/material-ui/mui-textField';
+import MuiButton from '../../uicomponents/material-ui/mui-button';
+
 import MuiCheckbox from '../../uicomponents/material-ui/mui-checkbox';
 import MuiDialog from '../../uicomponents/material-ui/mui-dialog';
 import MuiRadio from '../../uicomponents/material-ui/mui-radio';
 import MuiSelect from '../../uicomponents/material-ui/mui-select';
+import MuiDatePicker from '../../uicomponents/material-ui/mui-datePicker';
+
 
 /**
  * Defines layout of Add Master Screen
@@ -98,7 +102,7 @@ class AddMasterComponent extends Component {
 
             <div className="row">
               <div className="col-md-1 col-sm-1 col-sx-1">
-                Email:
+                Other Fields:
               </div>
               <div className="col-md-2 col-sm-2 col-sx-2">
                 <Field name="ReactCheckbox"
@@ -120,8 +124,11 @@ class AddMasterComponent extends Component {
             <div className="col-md-6 col-sm-6 col-sx-6 pull-right">
               MUIText<Field name="muiTextField"
                 component={MuiTextField}/>
+              <br />
+              <Field name="muiButton" label = "Mui Button"
+                component={MuiButton}/>
               <br/>
-              MUICheckbox <Field name="muicheckbox" options={options}
+              <Field name="muicheckbox" label="muicheckbox"
                 component={MuiCheckbox}/>
               <Field name="MuiDialog" buttonLabel="Click" title="Hello" content="Confirmation?"
                 actionButtonLabel="Sure" action={() => { console.log('clicked'); }}
@@ -130,8 +137,10 @@ class AddMasterComponent extends Component {
                 component={MuiRadio}/>
               <Field name="MuiSelect" options={options}
                 component={MuiSelect}/>
+              <br/>
+              <Field name="MuiDatePicker"
+                component={MuiDatePicker}/>
             </div>
-            ß
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12 ">
                 <div className="pull-right mainHeaderButtons">

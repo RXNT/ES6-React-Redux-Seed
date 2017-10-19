@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import { Modal, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import ReactButton from './react-button';
 /**
  * ReactDialog class
  * @augments Component
@@ -52,14 +53,14 @@ class ReactDialog extends Component {
     const combinedClassName = `${classes.dialog} ${className}`;
     return (
       <div>
-        <Button
-          bsStyle="primary"
-          bsSize="large"
-          className={classes.button}
+        <ReactButton
+          className="buttonTab"
+          label={buttonLabel}
+          glyphiconClass="glyphicon-remove" glyphiconColor="glyPhiconYellow"
+          style={{ width: 78 }}
           onClick={() => this.setModal(true)}
         >
-          {buttonLabel}
-        </Button>
+        </ReactButton>
 
         <Modal show={this.state.showModal} onHide={ () => this.setModal(false)}
           className = {combinedClassName} {...custom} >

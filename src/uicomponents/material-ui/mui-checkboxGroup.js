@@ -1,23 +1,25 @@
 /**
- * MuiRadio
- * Renders MuiRadio after applying styles
+ * MuiCheckbox
+ * Renders MuiCheckboxes after applying styles
  * 10/04/2017
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Radio from 'material-ui/Radio';
+import Checkbox from 'material-ui/Checkbox';
 import { FormControlLabel } from 'material-ui/Form';
+import _ from 'lodash';
 
 /**
- * MuiRadio
+ * MuiCheckBox
  * @class
  * @augments Component
  * @param {[]} options - An Array Containing list of items to be shown
  * @param {string} className - Bootstrap className
  * @param {object} style - The style to be applied to the component
+ * @returns an array of options selected by the users
  */
-class MuiRadio extends Component {
+class MuiCheckboxGroup extends Component {
   /**
   * @constructor
   * @param {*} props 
@@ -25,21 +27,41 @@ class MuiRadio extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.options[1],
+      values: {},
     };
     this.handleChange = this.handleChange.bind(this);
+  }
+  /**
+   * @function componentWillMount - Life cycle method that executes before the component is mounted
+   */
+  componentWillMount() {
+    let values = {}; //eslint-disable-line
+    this.props.options.map( function(option){ //eslint-disable-line
+      values[option] = false;
+    });
+    this.setState({ values });
   }
   /**
    * @function handleChange - Handles changes in the checkboxes
    * @param {*} event 
    */
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-    this.props.input.onChange(event.target.value);
+  handleChange(option) {
+    this.setState((prevState) => {
+      this.state.values[option] = !prevState.values[option];
+    }, () => {
+      let returnValues = []; //eslint-disable-line
+      _.forOwn(this.state.values, function (value, key) { //eslint-disable-line
+        if (value === true) {
+          returnValues.push(key);
+        }
+      });
+      this.props.input.onChange(returnValues);
+    });
   }
   /**
   * @function render
   * Renders a MUI element into the DOM in the supplied container 
+  * @TODO: Passing {...input} will override the input in props to boolean. Check
   */
   render() {
     const { classes, className, options, style, input, meta, ...custom } = this.props;
@@ -49,14 +71,13 @@ class MuiRadio extends Component {
         {options.map(option => (
           <FormControlLabel key={option}
             control={
-              <Radio
-                checked = {this.state.value === option}
-                onClick= {this.handleChange}
+              <Checkbox
+                checked = {this.state[option]}
+                onClick= {() => this.handleChange(option)}
                 className={combinedClassName}
-                {...input}
+                {...custom}
                 value={option}
                 style={style}
-                {...custom}
               />
             }
             label={option}
@@ -83,7 +104,7 @@ const styles = theme => ({
  * label
  * classes 
  */
-MuiRadio.propTypes = {
+MuiCheckboxGroup.propTypes = {
   classes: PropTypes.object.isRequired,
   options: PropTypes.array.isRequired,
 };
@@ -91,6 +112,6 @@ MuiRadio.propTypes = {
 /**
  * @function withStyles - Export the UI Component after applying styles
  * @param {object} styles - The default style applied to the component
- * @param {class} MuiRadio - Component where the styles are applied
+ * @param {class} MuiCheckbox - Component where the styles are applied
  */
-export default withStyles(styles)(MuiRadio);
+export default withStyles(styles)(MuiCheckboxGroup);

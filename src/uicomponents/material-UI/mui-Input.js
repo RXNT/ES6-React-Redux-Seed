@@ -53,12 +53,12 @@ class MuiInput extends Component {
    * Renders a MUI element into the DOM in the supplied container 
    */
   render() {
-    const { label, classes, className, input, meta, ...custom } = this.props;
+    const { label, classes, className, style, input, meta, ...custom } = this.props;
     const combinedClassName = `${className} ${classes.formControl}`;
     return (
       <FormControl className={combinedClassName}>
         <InputLabel htmlFor="input">{label}</InputLabel>
-        <Input id="input" value={this.state.name} onChange={this.handleChange} {...custom} />
+        <Input id="input" value={this.state.name} onChange={this.handleChange} style={style} {...custom} />
       </FormControl>
     );
   }
