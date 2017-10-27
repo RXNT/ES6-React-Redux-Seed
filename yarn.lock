@@ -2,6 +2,41 @@
 # yarn lockfile v1
 
 
+"@devexpress/dx-core@1.0.0-alpha.13":
+  version "1.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-core/-/dx-core-1.0.0-alpha.13.tgz#e1b75e473ad3e0308239af49f2f24e07aa589eb6"
+
+"@devexpress/dx-grid-core@1.0.0-alpha.13":
+  version "1.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-grid-core/-/dx-grid-core-1.0.0-alpha.13.tgz#7515e5f7135b6852aa8c4a816474ce4a99648e56"
+
+"@devexpress/dx-react-core@1.0.0-alpha.13":
+  version "1.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-react-core/-/dx-react-core-1.0.0-alpha.13.tgz#41cc2b55d66d72cf28c53afb4aff4a410445fee5"
+  dependencies:
+    "@devexpress/dx-core" "1.0.0-alpha.13"
+    prop-types "^15.6.0"
+
+"@devexpress/dx-react-grid-bootstrap3@1.0.0-alpha.13":
+  version "1.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-react-grid-bootstrap3/-/dx-react-grid-bootstrap3-1.0.0-alpha.13.tgz#1bb15dab87084a73f59fa8998f27fd7e70991931"
+  dependencies:
+    prop-types "^15.6.0"
+
+"@devexpress/dx-react-grid-material-ui@1.0.0-alpha.14":
+  version "1.0.0-alpha.14"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-react-grid-material-ui/-/dx-react-grid-material-ui-1.0.0-alpha.14.tgz#e125896e1f1c8c3189abe83645be2f83cc324178"
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.6.0"
+
+"@devexpress/dx-react-grid@1.0.0-alpha.13":
+  version "1.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-react-grid/-/dx-react-grid-1.0.0-alpha.13.tgz#e72813c2c21b2935cdc229e2308cdc7fe28525b7"
+  dependencies:
+    "@devexpress/dx-grid-core" "1.0.0-alpha.13"
+    prop-types "^15.6.0"
+
 abab@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.3.tgz#b81de5f7274ec4e756d797cd834f303642724e5d"

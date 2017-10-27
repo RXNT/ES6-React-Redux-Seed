@@ -11,6 +11,7 @@ import * as addActions from './actions';
 import SpinnerComponent from '../../uicomponents/spinner/spinner.component';
 import './add-master.component.scss';
 import * as types from './constants';
+
 import ReactTextField from '../../uicomponents/react-components/react-input';
 import ReactButton from '../../uicomponents/react-components/react-button';
 import ReactCheckBox from '../../uicomponents/react-components/react-checkbox';
@@ -19,15 +20,16 @@ import ReactDatePicker from '../../uicomponents/react-components/react-datePicke
 import ReactDialog from '../../uicomponents/react-components/react-dialog';
 import ReactRadio from '../../uicomponents/react-components/react-radio';
 import ReactSelect from '../../uicomponents/react-components/react-select';
+import ReactTable from '../../uicomponents/react-components/react-table-devexpress';
 
 import MuiTextField from '../../uicomponents/material-ui/mui-textField';
 import MuiButton from '../../uicomponents/material-ui/mui-button';
-
 import MuiCheckbox from '../../uicomponents/material-ui/mui-checkbox';
 import MuiDialog from '../../uicomponents/material-ui/mui-dialog';
 import MuiRadio from '../../uicomponents/material-ui/mui-radio';
 import MuiSelect from '../../uicomponents/material-ui/mui-select';
 import MuiDatePicker from '../../uicomponents/material-ui/mui-datePicker';
+import ReduxTableNew from '../../uicomponents/react-components/table/redux-table';
 
 
 /**
@@ -68,92 +70,96 @@ class AddMasterComponent extends Component {
     const options = ['Apple', 'Tiger', 'Zebra', 'Dinosaur'];
     const { handleSubmit } = this.props;
     return (
-      <form onSubmit= {handleSubmit(this.onSubmit.bind(this))}>
-        <div>
-          <div className="table">
-            <div className="row">
-              <div className="col-md-4">
-                <h4 className="pageHeaders">Add Patients</h4>
+      <div>
+        <form onSubmit= {handleSubmit(this.onSubmit.bind(this))}>
+          <div>
+            <div className="table">
+              <div className="row">
+                <div className="col-md-4">
+                  <h4 className="pageHeaders">Add Patients</h4>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="table tab-content">
-            {this.props.loading && <SpinnerComponent/>}
-            {errorMsgs.length > 0 && <div className="row redBorderTxt wordWrap">{errorMsgs}</div>}
-            <div className="row">
-              <div className="col-md-1 col-sm-1 col-sx-1">
-                First Name:
+            <div className="table tab-content">
+              {this.props.loading && <SpinnerComponent/>}
+              {errorMsgs.length > 0 && <div className="row redBorderTxt wordWrap">{errorMsgs}</div>}
+              <div className="row">
+                <div className="col-md-1 col-sm-1 col-sx-1">
+                  First Name:
+                </div>
+                <div className="col-md-2 col-sm-2 col-sx-2">
+                  <Field name="name"
+                    component={ReactTextField}/>
+                </div>
               </div>
-              <div className="col-md-2 col-sm-2 col-sx-2">
-                <Field name="name"
-                  component={ReactTextField}/>
-              </div>
-            </div>
 
-            <div className="row">
-              <div className="col-md-1 col-sm-1 col-sx-1">
-                Email:
+              <div className="row">
+                <div className="col-md-1 col-sm-1 col-sx-1">
+                  Email:
+                </div>
+                <div className="col-md-2 col-sm-2 col-sx-2">
+                  <Field name="email"
+                    component={ReactTextField}/>
+                </div>
               </div>
-              <div className="col-md-2 col-sm-2 col-sx-2">
-                <Field name="email"
-                  component={ReactTextField}/>
-              </div>
-            </div>
 
-            <div className="row">
-              <div className="col-md-1 col-sm-1 col-sx-1">
-                Other Fields:
+              <div className="row">
+                <div className="col-md-1 col-sm-1 col-sx-1">
+                  Other Fields:
+                </div>
+                <div className="col-md-2 col-sm-2 col-sx-2">
+                  <Field name="ReactCheckbox"
+                    component={ReactCheckBox}/>
+                  <Field name="ReactAutoComplete" options={options}
+                    component={ReactAutoCorrect}/>
+                  <Field name="ReactDatepicker"
+                    component={ReactDatePicker}/>
+                  <Field name="ReactDialog" buttonLabel="Click" title="Hello" content="Confirmation?"
+                    actionButtonLabel="Sure" action={() => { console.log('clicked'); }} // eslint-disable-line
+                    component={ReactDialog}/>
+                  <Field name="React Radio" label="hello"
+                    component={ReactRadio}/>
+                  <Field name="ReactSelect" options={options}
+                    component={ReactSelect}/>
+                </div>
               </div>
-              <div className="col-md-2 col-sm-2 col-sx-2">
-                <Field name="ReactCheckbox"
-                  component={ReactCheckBox}/>
-                <Field name="ReactAutoComplete" options={options}
-                  component={ReactAutoCorrect}/>
-                <Field name="ReactDatepicker"
-                  component={ReactDatePicker}/>
-                <Field name="ReactDialog" buttonLabel="Click" title="Hello" content="Confirmation?"
-                  actionButtonLabel="Sure" action={() => { console.log('clicked'); }}
-                  component={ReactDialog}/>
-                <Field name="React Radio" label="hello"
-                  component={ReactRadio}/>
-                <Field name="ReactSelect" options={options}
-                  component={ReactSelect}/>
-              </div>
-            </div>
 
-            <div className="col-md-6 col-sm-6 col-sx-6 pull-right">
-              MUIText<Field name="muiTextField"
-                component={MuiTextField}/>
-              <br />
-              <Field name="muiButton" label = "Mui Button"
-                component={MuiButton}/>
-              <br/>
-              <Field name="muicheckbox" label="muicheckbox"
-                component={MuiCheckbox}/>
-              <Field name="MuiDialog" buttonLabel="Click" title="Hello" content="Confirmation?"
-                actionButtonLabel="Sure" action={() => { console.log('clicked'); }}
-                component={MuiDialog}/>
-              <Field name="MuiRadio" options={options}
-                component={MuiRadio}/>
-              <Field name="MuiSelect" options={options}
-                component={MuiSelect}/>
-              <br/>
-              <Field name="MuiDatePicker"
-                component={MuiDatePicker}/>
-            </div>
-            <div className="row">
-              <div className="col-md-12 col-sm-12 col-xs-12 ">
-                <div className="pull-right mainHeaderButtons">
-                  <Link to="/search">
-                    <ReactButton className="buttonTab pull-right" label="Cancel" glyphiconClass="glyphicon-remove" glyphiconColor="glyPhiconYellow" />
-                  </Link>
-                  <ReactButton className= "buttonTab pull-right" type="submit" label='Submit' glyphiconClass="glyphicon-floppy-save" glyphiconColor="glyPhiconGreen" />
+              <div className="col-md-6 col-sm-6 col-sx-6 pull-right">
+                MUIText<Field name="muiTextField"
+                  component={MuiTextField}/>
+                <br />
+                <Field name="muiButton" label = "Mui Button"
+                  component={MuiButton}/>
+                <br/>
+                <Field name="muicheckbox" label="muicheckbox"
+                  component={MuiCheckbox}/>
+                <Field name="MuiDialog" buttonLabel="Click" title="Hello" content="Confirmation?"
+                  actionButtonLabel="Sure" action={() => { console.log('clicked'); }} // eslint-disable-line
+                  component={MuiDialog}/>
+                <Field name="MuiRadio" options={options}
+                  component={MuiRadio}/>
+                <Field name="MuiSelect" options={options}
+                  component={MuiSelect}/>
+                <br/>
+                <Field name="MuiDatePicker"
+                  component={MuiDatePicker}/>
+              </div>
+              <div className="row">
+                <div className="col-md-12 col-sm-12 col-xs-12 ">
+                  <div className="pull-right mainHeaderButtons">
+                    <Link to="/search">
+                      <ReactButton className="buttonTab pull-right" label="Cancel" glyphiconClass="glyphicon-remove" glyphiconColor="glyPhiconYellow" />
+                    </Link>
+                    <ReactButton className= "buttonTab pull-right" type="submit" label='Submit' glyphiconClass="glyphicon-floppy-save" glyphiconColor="glyPhiconGreen" />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
+        <ReactTable />
+        <ReduxTableNew />
+      </div>
     );
   }
 }

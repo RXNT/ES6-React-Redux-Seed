@@ -8,6 +8,7 @@ import applicationReducer from '../containers/reducer';
 import searchMasterReducer from '../components/search-master/reducer';
 import addMasterReducer from '../components/add-master/reducer';
 import timerReducer from '../uicomponents/forms/timer/reducer';
+import tableReducer from '../uicomponents/react-components/table/reducer';
 
 const rootReducer = combineReducers({
   form: formReducer,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   applicationReducer,
   timerReducer,
   addMasterReducer,
+  tableReducer,
 });
 
 export default rootReducer;
