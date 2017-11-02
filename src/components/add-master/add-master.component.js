@@ -158,7 +158,7 @@ class AddMasterComponent extends Component {
           </div>
         </form>
         ReactTable
-        <ReactTable />]
+        <ReactTable />
         Table Connected to the server
         <ReduxTableNew />
       </div>
