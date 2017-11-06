@@ -40,7 +40,7 @@ class MuiDatePicker extends Component {
         className = {combinedClassName}
         style={style}
         type="date"
-        error={touched && error}
+        error={touched && error ? true : false} //eslint-disable-line
         { ...input }
         { ...custom }
       />

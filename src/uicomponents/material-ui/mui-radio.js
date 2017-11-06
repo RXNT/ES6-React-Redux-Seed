@@ -47,7 +47,7 @@ class MuiRadio extends Component {
     return (
       <div>
         {options.map(option => (
-          <FormControlLabel key={option}
+          <FormControlLabel key={option} classes= {{ label: classes.label }}
             control={
               <Radio
                 checked = {this.state.value === option}
@@ -72,6 +72,9 @@ class MuiRadio extends Component {
  * @param {*} theme 
  */
 const styles = theme => ({
+  label: {
+    fontSize: 16,
+  },
   checkBox: {
     margin: theme.spacing.unit,
     padding: theme.spacing.unit,

@@ -27,6 +27,8 @@ class ReactAutoComplete extends Component {
     return (
       <Typeahead
         className = {combinedClassName}
+        bsSize='lg'
+        allowNew
         options={options}
         {...input}
         {...custom}

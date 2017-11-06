@@ -5,6 +5,8 @@ export default {
     logErrorRoute: '/rxntmaster/common/LogError',
     searchMastersRoute: '/masters?_sort=id&_order=desc',
     getMastersRoute: '/masters/',
+    getStudentsRoute: '/students/',
+    searchStudentsRoute: '/students?_sort=id&_order=desc/',
   },
   messages: {
     validationMessage: 'Please correct the errors',

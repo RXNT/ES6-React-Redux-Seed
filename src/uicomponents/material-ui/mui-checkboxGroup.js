@@ -69,7 +69,7 @@ class MuiCheckboxGroup extends Component {
     return (
       <div>
         {options.map(option => (
-          <FormControlLabel key={option}
+          <FormControlLabel key={option} classes= {{ label: classes.label }}
             control={
               <Checkbox
                 checked = {this.state[option]}
@@ -93,6 +93,9 @@ class MuiCheckboxGroup extends Component {
  * @param {*} theme 
  */
 const styles = theme => ({
+  label: {
+    fontSize: 16,
+  },
   checkBox: {
     margin: theme.spacing.unit,
     padding: theme.spacing.unit,

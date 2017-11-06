@@ -78,7 +78,10 @@ class MuiDialog extends Component {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={ () => action()} color="primary">
+            <Button onClick={ () => {
+              action();
+              this.handleClose();
+            }} color="primary">
               {actionButtonLabel}
             </Button>
             <Button onClick={this.handleClose} color="accent">

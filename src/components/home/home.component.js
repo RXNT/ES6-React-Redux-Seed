@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './home.component.scss';
 
@@ -21,6 +22,14 @@ class HomeComponent extends Component {
         <div className="row">
           <h3>Happy coding!!!!!</h3>
         </div>
+        <h2>DEMOS</h2>
+        <ul>
+          <li>
+            <h3>
+              <Link to='/muiDemo'>Mui Demo</Link>
+            </h3>
+          </li>
+        </ul>
       </div>
     );
   }

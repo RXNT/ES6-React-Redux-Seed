@@ -60,7 +60,7 @@ class MuiTextField extends Component {
         style={style}
         value={this.state.value}
         onChange={this.handleChange}
-        error={touched && error}
+        error={touched && error ? true : false } //eslint-disable-line
         { ...input }
         { ...custom }
       />

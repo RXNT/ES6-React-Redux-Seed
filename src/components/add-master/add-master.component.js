@@ -31,7 +31,6 @@ import MuiSelect from '../../uicomponents/material-ui/mui-select';
 import MuiDatePicker from '../../uicomponents/material-ui/mui-datePicker';
 import ReduxTableNew from '../../uicomponents/react-components/table/redux-table';
 
-
 /**
  * Defines layout of Add Master Screen
  */
@@ -52,7 +51,6 @@ class AddMasterComponent extends Component {
  * @param {object} e - Event Object
  */
   onSubmit(values) {
-    console.log(values); // eslint-disable-line
     this.props.actions.saveInfo(values).then(() => {
       this.props.history.push('/Search');
     });

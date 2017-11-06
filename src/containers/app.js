@@ -13,6 +13,9 @@ import AddMasterContainerComponent from './add-master/add-master.component';
 import HomeContainer from './home/home.container';
 import VersionMismatchComponent from './partials/version-mismatch.component';
 import * as appActions from './actions';
+import MUIDemo from '../components/ui-demo/material-ui';
+import SearchStudentContainerComponent from './search-student/search-student.component';
+import AddStudentContainerComponent from './add-student/add-student.component';
 
 /**
  * Defines layout for application level component
@@ -93,6 +96,10 @@ class App extends Component {
                 <Route exact path="/search" component={SearchMasterContainerComponent} />
                 <Route exact path="/new" component={AddMasterContainerComponent} />
                 <Route exact path="/master/:id" component={AddMasterContainerComponent} />
+                <Route exact path="/student/:id" component={AddStudentContainerComponent} />
+                <Route exact path="/muiDemo" component={MUIDemo} />
+                <Route exact path="/students" component={SearchStudentContainerComponent} />
+                <Route exact path="/students/new" component={AddStudentContainerComponent} />
                 <Route exact path="/" component={HomeContainer} />
               </div>
             </div>

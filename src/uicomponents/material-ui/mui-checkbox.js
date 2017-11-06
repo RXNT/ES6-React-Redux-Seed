@@ -28,18 +28,20 @@ class MuiCheckbox extends Component {
     const { classes, className, label, style, input, meta, ...custom } = this.props;
     const combinedClassName = `${classes.checkBox}`;
     return (
-      <FormControlLabel
-        control={
-          <Checkbox
-            className={combinedClassName}
-            style={style}
-            {...custom}
-            {...input}
-            value={label}
-          />
-        }
-        label={label}
-      />
+      <div>
+        <FormControlLabel classes ={{ label: classes.label }}
+          control={
+            <Checkbox
+              className={combinedClassName}
+              style={style}
+              {...custom}
+              {...input}
+              value={label}
+            />
+          }
+          label={label}
+        />
+      </div>
     );
   }
 }
@@ -49,6 +51,9 @@ class MuiCheckbox extends Component {
  * @param {*} theme 
  */
 const styles = theme => ({
+  label: {
+    fontSize: 16,
+  },
   checkBox: {
     margin: theme.spacing.unit,
     padding: theme.spacing.unit,
