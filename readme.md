@@ -92,7 +92,7 @@ yarn Start
   3. Import reducer created under step (1) in `src\store\reducers.js` and add in to combineReducers. (Add ‘addStudentsReducer’ to combineReducers.)
   4. Configure route under `src\containers\app.js` with container component created under `step-2` after importing `AddStudentsContainerComponent`. Add ```<Route exact path="/new/students" component={AddStudentsContainerComponent} />``` to the list of routes
   5. Navigate to `src/containers/search-students.components.js` and rename the Link destination to `“/new/students”`   ```<Link to="/new/students”>```
-  6. Navigate to tests/dv.json and add ```"students": [
+  6. Navigate to tests/db.json and add ```"students": [
     ], before “masters” ```
 
 
