@@ -84,7 +84,7 @@ class AddStudentComponent extends Component {
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12 ">
                 <div className="pull-right mainHeaderButtons">
-                  <Link to="/search">
+                  <Link to="/students">
                     <ReactButton className="buttonTab pull-right" label="Cancel" glyphiconClass="glyphicon-remove" glyphiconColor="glyPhiconYellow" />
                   </Link>
                   <ReactButton className= "buttonTab pull-right" type="submit" label='Submit' glyphiconClass="glyphicon-floppy-save" glyphiconColor="glyPhiconGreen" />
